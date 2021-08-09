@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -13,7 +14,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('categoria');
+        $categoria = Categoria::latest()->paginate(2);
+        return view('createCategoria', compact('categoria'));
     }
 
     /**
@@ -34,7 +36,21 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validacao = $request->validate([
+            'nome' => 'required|unique:categoria',
+            'icon' => 'required',
+            'estado' => 'required',
+        ]);
+        if($validacao)
+        {
+            Categoria::create($request->all());
+
+            $request->session()->flash('status', 'Categoria adicionada com Sucesso!');
+                    return redirect('categoria');
+        }
+        $request->session()->flash('status', $validacao);
+                    return redirect('categoria');
+                
     }
 
     /**
