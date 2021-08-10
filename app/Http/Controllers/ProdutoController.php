@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Categoria;
 use App\Models\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produto = Produto::latest()->paginate(5);
+        return view('produto', compact('produto'));
     }
 
     /**
@@ -24,7 +26,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        $categoria = Categoria::all();
+        return view('createProduto', compact('categoria'));
     }
 
     /**
@@ -35,7 +38,19 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* return $request->all(); */
+        $request->validate([
+            'categoria_id' => 'required',
+            'nome' => 'required|unique:produto',
+            'icon' => 'required',
+            'preco' => 'required|numeric',
+        ]);
+
+        Produto::create($request->all());
+
+        $request->session()->flash('status', 'Produto adicionado com Sucesso!');
+                    return redirect('produto');
+
     }
 
     /**
