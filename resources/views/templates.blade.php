@@ -14,19 +14,19 @@
     <meta name="robots" content="noindex">
 
     <!-- Perfect Scrollbar -->
-    <link type="text/css" href="{{('assets/vendor/perfect-scrollbar.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/vendor/perfect-scrollbar.css')}}" rel="stylesheet">
 
     <!-- App CSS -->
-    <link type="text/css" href="{{('assets/css/app.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{('assets/css/app.rtl.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/css/app.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/css/app.rtl.css')}}" rel="stylesheet">
 
     <!-- Material Design Icons -->
-    <link type="text/css" href="{{('assets/css/vendor-material-icons.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{('assets/css/vendor-material-icons.rtl.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/css/vendor-material-icons.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/css/vendor-material-icons.rtl.css')}}" rel="stylesheet">
 
     <!-- Font Awesome FREE Icons -->
-    <link type="text/css" href="{{('assets/css/vendor-fontawesome-free.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{('assets/css/vendor-fontawesome-free.rtl.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/css/vendor-fontawesome-free.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('assets/css/vendor-fontawesome-free.rtl.css')}}" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133433427-1"></script>
@@ -94,7 +94,7 @@
                                             <div class="dropdown-item d-flex">
                                                 <div class="mr-3">
                                                     <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex">
@@ -133,7 +133,7 @@
                                             <div class="dropdown-item d-flex">
                                                 <div class="mr-3">
                                                     <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex">
@@ -172,7 +172,7 @@
                                             <div class="dropdown-item d-flex">
                                                 <div class="mr-3">
                                                     <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex">
@@ -221,7 +221,7 @@
                                     <span class="mr-1 d-flex-inline">
                                         <span class="text-light">Adrian D.</span>
                                     </span>
-                                    <img src="assets/images/avatar/demi.png" class="rounded-circle" width="32" alt="Frontted">
+                                    <img src="{{asset('assets/images/avatar/demi.png')}}" class="rounded-circle" width="32" alt="Frontted">
                                 </a>
                                 <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-item-text dropdown-item-text--lh">
@@ -288,8 +288,8 @@
                                         </a>
                                     </li>
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="app-trello.html">
-                                            <span class="sidebar-menu-text">Trello</span>
+                                        <a class="sidebar-menu-button" href="{{url('categoria/create')}}">
+                                            <span class="sidebar-menu-text">Adicionar</span>
                                         </a>
                                     </li>
                                     <li class="sidebar-menu-item">
@@ -349,13 +349,13 @@
                                 </a>
                                 <ul class="sidebar-submenu collapse" id="pages_menu">
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="companies.html">
-                                            <span class="sidebar-menu-text">Companies</span>
+                                        <a class="sidebar-menu-button" href="{{url('produto')}}">
+                                            <span class="sidebar-menu-text">Listar os Produtos</span>
                                         </a>
                                     </li>
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="stories.html">
-                                            <span class="sidebar-menu-text">Stories</span>
+                                        <a class="sidebar-menu-button" href="{{url('produto/create')}}">
+                                            <span class="sidebar-menu-text">Adicionar</span>
                                         </a>
                                     </li>
 
@@ -436,7 +436,7 @@
                         <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
                             <a href="profile.html" class="flex d-flex align-items-center text-underline-0 text-body">
                                 <span class="avatar avatar-sm mr-2">
-                                    <img src="assets/images/avatar/demi.png" alt="avatar" class="avatar-img rounded-circle">
+                                    <img src="{{asset('assets/images/avatar/demi.png')}}" alt="avatar" class="avatar-img rounded-circle">
                                 </span>
                                 <span class="flex d-flex flex-column">
                                     <strong>Adrian Demian</strong>
@@ -487,34 +487,34 @@
     </div>
 
     <!-- jQuery -->
-    <script src="{{('assets/vendor/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery.min.js')}}"></script>
 
     <!-- Bootstrap -->
-    <script src="{{('assets/vendor/popper.min.js')}}"></script>
-    <script src="{{('assets/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/popper.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/bootstrap.min.js')}}"></script>
 
     <!-- Perfect Scrollbar -->
-    <script src="{{('assets/vendor/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/perfect-scrollbar.min.js')}}"></script>
 
     <!-- DOM Factory -->
-    <script src="{{('assets/vendor/dom-factory.js')}}"></script>
+    <script src="{{asset('assets/vendor/dom-factory.js')}}"></script>
 
     <!-- MDK -->
-    <script src="{{('assets/vendor/material-design-kit.js')}}"></script>
+    <script src="{{asset('assets/vendor/material-design-kit.js')}}"></script>
 
     <!-- App -->
-    <script src="{{('assets/js/toggle-check-all.js')}}"></script>
-    <script src="{{('assets/js/check-selected-row.js')}}"></script>
-    <script src="{{('assets/js/dropdown.js')}}"></script>
-    <script src="{{('assets/js/sidebar-mini.js')}}"></script>
-    <script src="{{('assets/js/app.js')}}"></script>
+    <script src="{{asset('assets/js/toggle-check-all.js')}}"></script>
+    <script src="{{asset('assets/js/check-selected-row.js')}}"></script>
+    <script src="{{asset('assets/js/dropdown.js')}}"></script>
+    <script src="{{asset('assets/js/sidebar-mini.js')}}"></script>
+    <script src="{{asset('assets/js/app.js')}}"></script>
 
     <!-- App Settings (safe to remove) -->
-    <script src="{{('assets/js/app-settings.js')}}"></script>
+    <script src="{{asset('assets/js/app-settings.js')}}"></script>
 
     <!-- List.js -->
-    <script src="{{('assets/vendor/list.min.js')}}"></script>
-    <script src="{{('assets/js/list.js')}}"></script>
+    <script src="{{asset('assets/vendor/list.min.js')}}"></script>
+    <script src="{{asset('assets/js/list.js')}}"></script>
 
 </body>
 
