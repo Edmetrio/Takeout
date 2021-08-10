@@ -10,6 +10,11 @@ class Produto extends Model
 {
     use HasFactory, Uuid;
 
+    protected $keyType = 'string';
+    public $incrementing = false;
+    protected $guarded = [];
+    protected $primaryKey = 'id';
+    
     protected $table = 'produto';
     protected $fillable = ['categoria_id','nome','icon','preco', 'estado'];
 

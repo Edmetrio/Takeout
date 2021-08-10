@@ -20,6 +20,7 @@ class CreateProdutosTable extends Migration
             $table->string('nome')->unique();
             $table->string('icon')->nullable();
             $table->decimal('preco', 10,2);
+            $table->string('estado')->default('on');
             $table->timestamps();
         });
     }
