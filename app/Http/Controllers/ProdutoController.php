@@ -15,7 +15,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produto = Produto::latest()->paginate(5);
+        $produto = Produto::with('categorias')->latest()->get();
         return view('produto', compact('produto'));
     }
 
@@ -50,7 +50,6 @@ class ProdutoController extends Controller
 
         $request->session()->flash('status', 'Produto adicionado com Sucesso!');
                     return redirect('produto');
-
     }
 
     /**
@@ -72,7 +71,11 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Produto::find($id);
+
+        
+        /* $categoria = Categoria::all(); */
+        return view('createProduto', compact('produto'));
     }
 
     /**
