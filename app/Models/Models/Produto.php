@@ -14,12 +14,12 @@ class Produto extends Model
     public $incrementing = false;
     protected $guarded = [];
     protected $primaryKey = 'id';
-    
+
     protected $table = 'produto';
     protected $fillable = ['categoria_id','nome','icon','preco', 'estado'];
 
-    public function Categoria()
+    public function categorias()
     {
-        return $this->belongsTo(Produto::class);
+        return $this->hasOne(Categoria::class, 'id', 'categoria_id');
     }
 }
