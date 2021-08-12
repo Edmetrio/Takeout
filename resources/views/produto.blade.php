@@ -48,21 +48,25 @@
                                         <th>Nome da Categoria</th>
 
                                         <th style="width: 37px;">Estado</th>
+                                        <th style="width: 37px;">Categoria</th>
                                         <th style="width: 120px;">icon</th>
                                         <th style="width: 24px;">Acções</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="staff02">
                                     @foreach($produto as $p)
-
+                                    @php
+                                    $categoria = $p->find($p->id)->categorias;
+                                    @endphp
+                                    <p></p>
                                     <tr>
                                         <td><span class="js-lists-values-employee-name">{{$p->nome}}</span></td>
+                                        <td><span class="js-lists-values-employee-name">{{$categoria->nome}}</span></td>
                                         <td><span class="badge badge-warning">{{$p->preco}}</span></td>
                                         <td>{{$p->icon}}</td>
-                                        <td><a href="#" class="text-muted"><i class="material-icons">more_vert</i></a></td>
+                                        <td class="text-right"><a href="{{url("produto/$p->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
