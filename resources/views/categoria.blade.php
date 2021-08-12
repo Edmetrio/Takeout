@@ -56,13 +56,9 @@
 
                                     @foreach($categoria as $c)
                                     <tr>
-
                                         <td>
-
                                             <span class="js-lists-values-employee-name">{{$c->nome}}</span>
-
                                         </td>
-
                                         <td><span class="badge badge-warning">{{$c->estado}}</span></td>
                                         <td>{{$c->icon}}</td>
                                         <td><a href="#" class="text-muted"><i class="material-icons">more_vert</i></a></td>
