@@ -25,7 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categoria = Categoria::latest()->paginate(2);
+        $categoria = Categoria::latest()->paginate(10);
         return view('createCategoria', compact('categoria'));
     }
 
@@ -42,16 +42,14 @@ class CategoriaController extends Controller
             'icon' => 'required',
             'estado' => 'required',
         ]);
-        if($validacao)
-        {
+        if ($validacao) {
             Categoria::create($request->all());
 
             $request->session()->flash('status', 'Categoria adicionada com Sucesso!');
-                    return redirect('categoria');
+            return redirect('categoria');
         }
         $request->session()->flash('status', $validacao);
-                    return redirect('categoria');
-                
+        return redirect('categoria');
     }
 
     /**
@@ -73,7 +71,8 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categoria = Categoria::latest()->get();
+        return view('createCategoria', compact('categoria'));
     }
 
     /**
@@ -83,9 +82,21 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Categoria $categoria)
     {
-        //
+        $request->validate([
+            'nome' => 'required|unique:categoria',
+            'icon' => 'required',
+            'estado' => 'required',
+        ]);
+
+        $categoria = $categoria->update($request->all());
+        if ($categoria) {
+            $request->session()->flash('status', 'Categoria Alterada com Sucesso!');
+            return redirect('categoria');
+        }
+        $request->session()->flash('status', 'Erro ao Alterar Categoria!');
+        return redirect('categoria');
     }
 
     /**
