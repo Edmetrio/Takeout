@@ -45,7 +45,7 @@
                                 <thead>
                                     <tr>
 
-                                        <th>Nome da Categoria</th>
+                                        <th style="width: 120px;">Nome da Categoria</th>
 
                                         <th style="width: 37px;">Estado</th>
                                         <th style="width: 120px;">icon</th>
@@ -61,7 +61,7 @@
                                         </td>
                                         <td><span class="badge badge-warning">{{$c->estado}}</span></td>
                                         <td>{{$c->icon}}</td>
-                                        <td><a href="#" class="text-muted"><i class="material-icons">more_vert</i></a></td>
+                                        <td class="text-right"><a href="{{url("categotria/$c->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
