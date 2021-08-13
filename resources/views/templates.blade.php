@@ -367,6 +367,11 @@
                                                 <span class="sidebar-menu-text">Entrada de Estoque</span>
                                             </a>
                                         </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="{{url('artigo/create')}}">
+                                                <span class="sidebar-menu-text">Adicionar Artigo</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                         </ul>
