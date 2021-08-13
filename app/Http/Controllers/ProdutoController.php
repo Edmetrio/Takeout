@@ -27,6 +27,7 @@ class ProdutoController extends Controller
     public function create()
     {
         $categoria = Categoria::all();
+
         return view('createProduto', compact('categoria'));
     }
 
@@ -72,9 +73,9 @@ class ProdutoController extends Controller
     public function edit($id)
     {
         $produto = Produto::with('categorias')->find($id);
-        
-        /* $categoria = Categoria::all(); */
-        return view('createProduto', compact('produto'));
+        /* dd($produto); */
+        $categoria = Categoria::all();
+        return view('createProduto', compact('produto','categoria'));
     }
 
     /**
@@ -86,7 +87,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

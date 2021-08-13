@@ -15,7 +15,7 @@
                     </ol>
                 </nav>
 
-                <h1 class="m-0">Cadastro da Categoria</h1>
+                <h1 class="m-0">@if(isset($produto))Alterar @else Cadastro @endif da Produto</h1>
             </div>
         </div>
         @if(session('status'))
@@ -33,44 +33,39 @@
                         </p>
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
+                        @if(isset($produto))
+                        <form method="POST" action="{{url("produto/$produto->id")}}">
+                            @method('PUT')
+                        @else
                         <form method="POST" action="{{url('produto')}}">
+                        @endif
                             @csrf
                             <div class="was-validated">
                                 <div class="form-row">
-                                    <div class="col-12 col-md-6 mb-3">
-                                        <label>Nome</label>
+                                    <div class="col-12 col-md-6 mb-12">
+                                    <label for="validationSample01">Nome</label>
                                         <select name="categoria_id" id="categoria_id">
+                                        <option value="{{$produto->categorias->id}}">{{$produto->categorias->nome}}</option>
                                             @foreach($categoria as $c)
-                                            <option value="{{$c->id}}">{{$c->nome}}</option>
+                                                <option value="{{$c->id}}">{{$c->nome}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="validationSample01">Nome</label>
-                                        <input type="text" class="form-control" name="nome" placeholder="Nome" value="" required="">
+                                        <input type="text" class="form-control" name="nome" placeholder="Nome" value="{{$produto->nome ?? ''}}" required="">
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="validationSample02">Icon</label>
-                                        <input type="file" class="form-control" name="icon" required="">
+                                        <input type="file" class="form-control" name="icon" value="{{$produto->icon ?? ''}}" required="">
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="validationSample01">Preço</label>
-                                        <input type="text" class="form-control" name="preco" placeholder="100" value="" required="">
+                                        <input type="text" class="form-control" name="preco" placeholder="100" value="{{$produto->preco ?? ''}}" required="">
                                     </div>
                                 </div>
-                                <!-- <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
-                                    <div class="flex">
-                                        <label for="subscribe">Visibilidade</label><br>
-                                        <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
-                                            <input checked="" type="checkbox" id="subscribe" name="estado" class="custom-control-input">
-                                            <label class="custom-control-label" for="subscribe">Yes</label>
-                                        </div>
-                                        <label for="subscribe" class="mb-0">Yes</label>
-                                    </div>
-                                </div> -->
-
                             </div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary" type="submit">@if(isset($produto))Alterar @else Submeter @endif</button>
                         </form>
                     </div>
                 </div>
