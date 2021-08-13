@@ -50,7 +50,7 @@ class ProdutoController extends Controller
         Produto::create($request->all());
 
         $request->session()->flash('status', 'Produto adicionado com Sucesso!');
-                    return redirect('produto');
+        return redirect('produto');
     }
 
     /**
@@ -76,7 +76,7 @@ class ProdutoController extends Controller
         /* dd($produto); */
         $categoria = Categoria::all();
         /* dd($categoria); */
-        return view('createProduto', compact('produto','categoria'));
+        return view('createProduto', compact('produto', 'categoria'));
     }
 
     /**
@@ -88,7 +88,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        return 
+
         $request->validate([
             'categoria_id' => 'required',
             'nome' => 'required|unique:produto',
@@ -96,9 +96,13 @@ class ProdutoController extends Controller
             'preco' => 'required|numeric',
         ]);
 
-        $produto->update($request->all());
-        $request->session()->flash('status', 'Produto Actualizado com Sucesso!');
-                    return redirect('produto');        
+        $cat = $produto->update($request->all());
+        if ($cat) {
+            $request->session()->flash('status', 'Produto Actualizado com Sucesso!');
+            return redirect('produto');
+        }
+        $request->session()->flash('status', 'Erro ao Actualizar!');
+        return redirect('produto');
     }
 
     /**
