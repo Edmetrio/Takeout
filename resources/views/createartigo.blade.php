@@ -31,35 +31,41 @@
                         <p><strong class="headings-color">Categoria</strong></p>
                         <p class="text-muted">As Categorias Existentes no sistema são: Hambúrgueres, Racheis, Dose de Batatas e de Frango
                         </p>
+                        @if(session('status'))
+                    <div class="alert alert-success" role="alert" style="text-align: center; font-weight: bold;">
+                        <p class="status">{{session('status')}}</p>
                     </div>
+                    @endif
+                    </div>
+                    
                     <div class="col-lg-8 card-form__body card-body">
                         @if(isset($artigo))
-                            <form method="POST" action="{{url("artigo/$artigo->id")}}">
+                        <form method="POST" action="{{url("artigo/$artigo->id")}}">
                             @method('PUT')
-                        @else
+                            @else
                             <form method="POST" action="{{url('artigo')}}">
-                        @endif
-                            @csrf
-                            <div class="was-validated">
-                                <div class="form-row">
-                                    <div class="col-12 col-md-6 mb-3">
-                                        <label for="validationSample01">Nome</label>
-                                        <input type="text" class="form-control" name="nome" placeholder="Nome" value="{{$produto->nome ?? ''}}" required="">
-                                    </div>
-                                    <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
-                                        <div class="flex">
-                                            <label for="subscribe">Visibilidade</label><br>
-                                            <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
-                                                <input checked="" type="checkbox" id="subscribe" name="estado" class="custom-control-input">
-                                                <label class="custom-control-label" for="subscribe">Yes</label>
+                                @endif
+                                @csrf
+                                <div class="was-validated">
+                                    <div class="form-row">
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="validationSample01">Nome</label>
+                                            <input type="text" class="form-control" name="nome" placeholder="Nome" value="{{$artigo->nome ?? ''}}" required="">
+                                        </div>
+                                        <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
+                                            <div class="flex">
+                                                <label for="subscribe">Visibilidade</label><br>
+                                                <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                                                    <input checked="" type="checkbox" id="subscribe" name="estado" class="custom-control-input">
+                                                    <label class="custom-control-label" for="subscribe">Yes</label>
+                                                </div>
+                                                <label for="subscribe" class="mb-0">Yes</label>
                                             </div>
-                                            <label for="subscribe" class="mb-0">Yes</label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <button class="btn btn-primary" type="submit">@if(isset($produto))Alterar @else Submeter @endif</button>
-                        </form>
+                                <button class="btn btn-primary" type="submit">@if(isset($artigo))Alterar @else Submeter @endif</button>
+                            </form>
                     </div>
                 </div>
             </div>
