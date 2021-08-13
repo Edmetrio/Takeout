@@ -15,7 +15,7 @@
                     </ol>
                 </nav>
 
-                <h1 class="m-0">@if(isset($produto))Alterar @else Cadastro @endif da Produto</h1>
+                <h1 class="m-0">@if(isset($artigo))Alterar @else Cadastro @endif da Produto</h1>
             </div>
         </div>
         @if(session('status'))
@@ -33,35 +33,28 @@
                         </p>
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
-                        @if(isset($produto))
-                            <form method="POST" action="{{url("produto/$produto->id")}}">
+                        @if(isset($artigo))
+                            <form method="POST" action="{{url("artigo/$artigo->id")}}">
                             @method('PUT')
                         @else
-                            <form method="POST" action="{{url('produto')}}">
+                            <form method="POST" action="{{url('artigo')}}">
                         @endif
                             @csrf
                             <div class="was-validated">
                                 <div class="form-row">
-                                    <div class="col-12 col-md-6 mb-12">
-                                    <label for="validationSample01">Nome</label>
-                                        <select name="categoria_id" id="categoria_id">
-                                        <option value="{{$produto->categorias->id}}">{{$produto->categorias->nome}}</option>
-                                            @foreach($categoria as $c)
-                                                <option value="{{$c->id}}">{{$c->nome}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="validationSample01">Nome</label>
                                         <input type="text" class="form-control" name="nome" placeholder="Nome" value="{{$produto->nome ?? ''}}" required="">
                                     </div>
-                                    <div class="col-12 col-md-6 mb-3">
-                                        <label for="validationSample02">Icon</label>
-                                        <input type="file" class="form-control" name="icon" value="{{$produto->icon ?? ''}}" required="">
-                                    </div>
-                                    <div class="col-12 col-md-6 mb-3">
-                                        <label for="validationSample01">Preço</label>
-                                        <input type="text" class="form-control" name="preco" placeholder="100" value="{{$produto->preco ?? ''}}" required="">
+                                    <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
+                                        <div class="flex">
+                                            <label for="subscribe">Visibilidade</label><br>
+                                            <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                                                <input checked="" type="checkbox" id="subscribe" name="estado" class="custom-control-input">
+                                                <label class="custom-control-label" for="subscribe">Yes</label>
+                                            </div>
+                                            <label for="subscribe" class="mb-0">Yes</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

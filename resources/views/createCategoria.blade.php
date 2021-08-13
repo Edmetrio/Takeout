@@ -15,7 +15,7 @@
                     </ol>
                 </nav>
 
-                <h1 class="m-0">Cadastro da Categoria</h1>
+                <h1 class="m-0">@if(isset($categoria)) Alterar @else Adicionar @endif Categoria</h1>
             </div>
         </div>
         @if(session('status'))
@@ -33,33 +33,38 @@
                         </p>
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
-                        <form method="POST" action="{{url('categoria')}}">
-                            @csrf
-                            <div class="was-validated">
-                                <div class="form-row">
-                                    <div class="col-12 col-md-6 mb-3">
-                                        <label for="validationSample01">Nome</label>
-                                        <input type="text" class="form-control" name="nome" placeholder="Nome" value="" required="">
-                                    </div>
-                                    <div class="col-12 col-md-6 mb-3">
-                                        <label for="validationSample02">Icon</label>
-                                        <input type="file" class="form-control" name="icon" required="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
-                                    <div class="flex">
-                                        <label for="subscribe">Visibilidade</label><br>
-                                        <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
-                                            <input checked="" type="checkbox" id="subscribe" name="estado" class="custom-control-input">
-                                            <label class="custom-control-label" for="subscribe">Yes</label>
+                        @if(isset($categoria))
+                        <form method="POST" action="{{url("categoria/$categoria->id")}}">
+                            @method('PUT')
+                            @else
+                            <form method="POST" action="{{url('categoria')}}">
+                                @endif
+                                @csrf
+                                <div class="was-validated">
+                                    <div class="form-row">
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="validationSample01">Nome</label>
+                                            <input type="text" class="form-control" name="nome" value="{{$categoria->nome ?? ''}}" placeholder="Nome" required="">
                                         </div>
-                                        <label for="subscribe" class="mb-0">Yes</label>
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="validationSample02">Icon</label>
+                                            <input type="file" class="form-control" name="icon" value="{{$categoria->icon ?? ''}}" required="">
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
+                                        <div class="flex">
+                                            <label for="subscribe">Visibilidade</label><br>
+                                            <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                                                <input checked="" type="checkbox" id="subscribe" name="estado" class="custom-control-input">
+                                                <label class="custom-control-label" for="subscribe">Yes</label>
+                                            </div>
+                                            <label for="subscribe" class="mb-0">Yes</label>
+                                        </div>
+                                    </div>
 
-                            </div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
-                        </form>
+                                </div>
+                                <button class="btn btn-primary" type="submit">@if(isset($categoria)) Alterar @else Adicionar @endif</button>
+                            </form>
                     </div>
                 </div>
             </div>
