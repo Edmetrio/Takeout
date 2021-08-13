@@ -320,27 +320,11 @@
                                                 <span class="sidebar-menu-toggle-icon"></span>
                                             </span>
                                         </a>
-                                        <ul class="sidebar-submenu collapse " id="course_menu">
-                                            <li class="sidebar-menu-item ">
-                                                <a class="sidebar-menu-button" href="app-browse-courses.html">
-                                                    <span class="sidebar-menu-text">Browse Courses</span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-menu-item ">
-                                                <a class="sidebar-menu-button" href="app-course.html">
-                                                    <span class="sidebar-menu-text">Course</span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-menu-item ">
-                                                <a class="sidebar-menu-button" href="app-lesson.html">
-                                                    <span class="sidebar-menu-text">Lesson</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </li>
 
+                            
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#pages_menu">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
@@ -358,66 +342,33 @@
                                             <span class="sidebar-menu-text">Adicionar</span>
                                         </a>
                                     </li>
-
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="digital-product.html">
-                                            <span class="sidebar-menu-text">Digital Product</span>
-                                            <span class="badge badge-primary ml-auto">NEW</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" data-toggle="collapse" href="#login_menu">
-                                            <span class="sidebar-menu-text">Login</span>
-                                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                        </a>
-                                        <ul class="sidebar-submenu collapse" id="login_menu">
-                                            <li class="sidebar-menu-item">
-                                                <a class="sidebar-menu-button" href="login.html">
-                                                    <span class="sidebar-menu-text">Login / Background Image</span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-menu-item">
-                                                <a class="sidebar-menu-button" href="login-centered-boxed.html">
-                                                    <span class="sidebar-menu-text">Login / Centered Boxed</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" data-toggle="collapse" href="#signup_menu">
-                                            <span class="sidebar-menu-text">Sign Up</span>
-                                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                        </a>
-                                        <ul class="sidebar-submenu collapse" id="signup_menu">
-                                            <li class="sidebar-menu-item">
-                                                <a class="sidebar-menu-button" href="signup.html">
-                                                    <span class="sidebar-menu-text">Sign Up / Background
-                                                        Image</span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-menu-item">
-                                                <a class="sidebar-menu-button" href="signup-centered-boxed.html">
-                                                    <span class="sidebar-menu-text">Sign Up / Centered Boxed</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="product-listing.html">
-                                            <span class="sidebar-menu-text">Product Listing</span>
-                                            <span class="badge badge-primary ml-auto">NEW</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="blank.html">
-                                            <span class="sidebar-menu-text">Blank Page</span>
-                                            <span class="badge badge-primary ml-auto">NEW</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
+                            <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
+                                        <i
+                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">view_compact</i>
+                                        <span class="sidebar-menu-text">Estoque</span>
+                                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                    </a>
+                                    <ul class="sidebar-submenu collapse" id="layouts_menu">
+                                        <li class="sidebar-menu-item active">
+                                            <a class="sidebar-menu-button" href="ui-forms.html">
+                                                <span class="sidebar-menu-text">Lista de Estoques</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="fluid-ui-forms.html">
+                                                <span class="sidebar-menu-text">Adicionar Estoque</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="fluid-ui-forms.html">
+                                                <span class="sidebar-menu-text">Entrada de Estoque</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                         </ul>
                         <div class="sidebar-heading">Perfil</div>
                         <div class="sidebar-block p-0 mb-0">
