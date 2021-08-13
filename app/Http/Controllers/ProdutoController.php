@@ -75,6 +75,7 @@ class ProdutoController extends Controller
         $produto = Produto::with('categorias')->find($id);
         /* dd($produto); */
         $categoria = Categoria::all();
+        /* dd($categoria); */
         return view('createProduto', compact('produto','categoria'));
     }
 
@@ -85,9 +86,19 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produto $produto)
     {
-        
+        return 
+        $request->validate([
+            'categoria_id' => 'required',
+            'nome' => 'required|unique:produto',
+            'icon' => 'required',
+            'preco' => 'required|numeric',
+        ]);
+
+        $produto->update($request->all());
+        $request->session()->flash('status', 'Produto Actualizado com Sucesso!');
+                    return redirect('produto');        
     }
 
     /**
