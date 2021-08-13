@@ -14,7 +14,8 @@ class ArtigoController extends Controller
      */
     public function index()
     {
-        //
+        $artigo = Artigo::latest()->paginate(10);
+        return view('artigo', compact('artigo'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ArtigoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artigo = Artigo::findorfail($id);
+        return view('createartigo', compact('artigo'));
     }
 
     /**
@@ -79,9 +81,19 @@ class ArtigoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Artigo $artigo)
     {
-        //
+        $request->validate([
+            'nome' => 'required|unique:artigo',
+        ]);
+        $art = $artigo->update($request->all());
+        if($art)
+        {
+            $request->session()->flash('status', 'Artigo Actualizado com Sucesso!');
+            return redirect('artigo');
+        }
+        $request->session()->flash('status', 'Erro ao Actualizar Artigo');
+            return redirect('artigo');
     }
 
     /**
