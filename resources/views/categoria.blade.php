@@ -61,7 +61,7 @@
                                         </td>
                                         <td><span class="badge badge-warning">{{$c->estado}}</span></td>
                                         <td>{{$c->icon}}</td>
-                                        <td class="text-right"><a href="{{url("categotria/$c->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
+                                        <td class="text-right"><a href="{{url("categoria/$c->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
