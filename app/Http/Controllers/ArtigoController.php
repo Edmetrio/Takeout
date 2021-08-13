@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Artigo;
 use Illuminate\Http\Request;
 
 class ArtigoController extends Controller
@@ -34,7 +35,19 @@ class ArtigoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'nome' => 'required|unique:artigo',
+            'estado' => 'required',
+        ]);
+        $artigo = Artigo::create($request->all());
+        if($artigo)
+        {
+            $request->session()->flash('status', 'Artigo adicionada com Sucesso!');
+            return redirect('artigo/create'); 
+        }
+        $request->session()->flash('status', 'Artigo Actualizado com Sucesso!');
+            return redirect('artigo/create');
+
     }
 
     /**
