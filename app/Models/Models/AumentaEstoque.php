@@ -13,7 +13,7 @@ class AumentaEstoque extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     protected $guarded = [];
-    protected $primaryKey = 'users_id';
+    protected $primaryKey = 'id';
 
     protected $table = 'aumentaestoque';
     protected $fillable = ['users_id','artigo_id','quantidade','quantidade_minima','preco_compra'];
