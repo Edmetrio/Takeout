@@ -353,23 +353,28 @@
                                     </a>
                                     <ul class="sidebar-submenu collapse" id="layouts_menu">
                                         <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="ui-forms.html">
+                                            <a class="sidebar-menu-button" href="{{url('estoque')}}">
                                                 <span class="sidebar-menu-text">Lista de Estoques</span>
                                             </a>
                                         </li>
                                         <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="fluid-ui-forms.html">
+                                            <a class="sidebar-menu-button" href="{{url('estoque/create')}}">
                                                 <span class="sidebar-menu-text">Adicionar Estoque</span>
                                             </a>
                                         </li>
                                         <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="fluid-ui-forms.html">
+                                            <a class="sidebar-menu-button" href="{{url('aumenta/create')}}">
                                                 <span class="sidebar-menu-text">Entrada de Estoque</span>
                                             </a>
                                         </li>
                                         <li class="sidebar-menu-item">
                                             <a class="sidebar-menu-button" href="{{url('artigo/create')}}">
                                                 <span class="sidebar-menu-text">Adicionar Artigo</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="{{url('artigo')}}">
+                                                <span class="sidebar-menu-text">lista do artigo</span>
                                             </a>
                                         </li>
                                     </ul>
