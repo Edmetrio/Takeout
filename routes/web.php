@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\EntradaEstoqueController;
+use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\ProdutoController;
+use App\Models\Models\Artigo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +30,11 @@ Route::get('/dashboard', function () {
 Route::resource('categoria', CategoriaController::class);
 
 Route::resource('produto', ProdutoController::class);
+
+Route::resource('artigo', ArtigoController::class);
+
+Route::resource('estoque', EstoqueController::class);
+
+Route::resource('aumenta', EntradaEstoqueController::class);
 
 require __DIR__.'/auth.php';
