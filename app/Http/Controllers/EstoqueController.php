@@ -42,7 +42,8 @@ class EstoqueController extends Controller
             'artigo_id' => 'required',
             'users_id' => 'required',
             'quantidade' => 'required',
-            'quantidade_minima' => 'required',
+            'quantidade_minima' => 'required|numeric',
+            'preco_compra' => 'required|numeric'
         ]);
         $estoque = Estoque::create($request->all());
         if ($estoque) {
