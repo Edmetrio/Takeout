@@ -13,7 +13,7 @@ class CreateAumentaEstoquesTable extends Migration
      */
     public function up()
     {
-        Schema::create('aumenta_estoque', function (Blueprint $table) {
+        Schema::create('aumentaestoque', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
@@ -32,6 +32,6 @@ class CreateAumentaEstoquesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aumenta_estoque');
+        Schema::dropIfExists('aumentaestoque');
     }
 }
