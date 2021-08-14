@@ -19,6 +19,8 @@ class CreateEstoquesTable extends Migration
             $table->uuid('artigo_id');
             $table->foreign('artigo_id')->references('id')->on('artigo')->onDelete('cascade')->onUpdate('cascade');
             $table->decimal('quantidade', 10,2);
+            $table->decimal('quantidade_minima', 10,2);
+            $table->decimal('preco_compra', 10,2);
             $table->timestamps();
         });
     }
