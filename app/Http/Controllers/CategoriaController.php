@@ -25,8 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categoria = Categoria::latest()->paginate(10);
-        return view('createCategoria', compact('categoria'));
+        return view('createCategoria');
     }
 
     /**
@@ -71,7 +70,7 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        $categoria = Categoria::latest()->get();
+        $categoria = Categoria::find($id);
         return view('createCategoria', compact('categoria'));
     }
 
@@ -84,19 +83,16 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria)
     {
+        /* return $request->all(); */
         $request->validate([
             'nome' => 'required|unique:categoria',
             'icon' => 'required',
             'estado' => 'required',
         ]);
 
-        $categoria = $categoria->update($request->all());
-        if ($categoria) {
-            $request->session()->flash('status', 'Categoria Alterada com Sucesso!');
-            return redirect('categoria');
-        }
-        $request->session()->flash('status', 'Erro ao Alterar Categoria!');
-        return redirect('categoria');
+        $categoria->update($request->all());
+        $request->session()->flash('status', 'Categoria Actualizado com Sucesso!');
+                    return redirect('categoria');  
     }
 
     /**
