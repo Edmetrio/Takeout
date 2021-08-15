@@ -38,8 +38,9 @@ class EntradaEstoqueController extends Controller
      */
     public function store(Request $request)
     {
-        $aumento = Estoque::where('artigo_id', $request->artigo_id)->first();
-        $estoque = $aumento->quantidade + $request->quantidade;
+        /* return $request->preco_compra; */
+        /* $aumento = Estoque::where('artigo_id', $request->artigo_id)->first();
+        $estoque = $aumento->quantidade + $request->quantidade; */
         /* dd($estoque); */
 
         $request->validate([
@@ -53,7 +54,7 @@ class EntradaEstoqueController extends Controller
         if ($entrada) {
             $aumento = Estoque::where('artigo_id', $request->artigo_id)->first();
             $estoque = $aumento->quantidade + $request->quantidade;
-            Estoque::where(['artigo_id' => $request->artigo_id])->update(['quantidade' => $estoque]);
+            Estoque::where(['artigo_id' => $request->artigo_id])->update(['quantidade' => $estoque, 'preco_compra' => $request->preco_compra]);
             $request->session()->flash('status', 'Aumentado no estoque!');
             return redirect('aumenta/create');
         }
