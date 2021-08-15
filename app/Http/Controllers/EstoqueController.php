@@ -15,7 +15,9 @@ class EstoqueController extends Controller
      */
     public function index()
     {
-        //
+        $estoque = Estoque::with(['users','artigos'])->get();
+        
+        return view('Estoque', compact('estoque'));
     }
 
     /**
