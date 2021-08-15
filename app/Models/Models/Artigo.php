@@ -16,4 +16,14 @@ class Artigo extends Model
 
     protected $table = 'artigo';
     protected $fillable = ['nome','estado'];
+
+    public function entradaestoques()
+    {
+        return $this->hasMany(AumentaEstoque::class, 'artigo_id');
+    }
+
+    public function estoques()
+    {
+        return $this->hasMany(Estoque::class, 'artigo_id');
+    }
 }
