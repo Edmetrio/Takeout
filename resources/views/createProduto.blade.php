@@ -45,7 +45,7 @@
                                     <div class="col-12 col-md-6 mb-12">
                                     <label for="validationSample01">Nome</label>
                                         <select name="categoria_id" id="categoria_id">
-                                        <option value="{{$produto->categorias->id}}">{{$produto->categorias->nome}}</option>
+                                        <option value="{{$produto->categorias->id ?? ''}}">{{$produto->categorias->nome ?? 'Seleccione a Categoria'}}</option>
                                             @foreach($categoria as $c)
                                                 <option value="{{$c->id}}">{{$c->nome}}</option>
                                             @endforeach
