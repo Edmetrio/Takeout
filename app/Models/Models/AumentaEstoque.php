@@ -17,4 +17,9 @@ class AumentaEstoque extends Model
 
     protected $table = 'aumentaestoque';
     protected $fillable = ['users_id','artigo_id','quantidade','quantidade_minima','preco_compra'];
+
+    public function artigos()
+    {
+        return $this->hasOne(Artigo::class, 'id', 'artigo_id');
+    }
 }
