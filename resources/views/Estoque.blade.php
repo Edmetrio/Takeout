@@ -126,19 +126,15 @@
                                                     </div>
                                                 </td>
                                                 @foreach($estoque as $e)
-                                                @php
-                                                    $artigo = $e->find($e->artigo_id);
-                                                    $user = $e->find($e->users_id)->users;
-                                                @endphp
                                                 <td>
-                                                    <div class="badge badge-soft-dark">{{$user->name}}</div>
+                                                    <div class="badge badge-soft-dark">{{$e->users->name}}</div>
                                                 </td>
                                                 <td>
                                                     <img src="assets/images/Amora.jpg"
                                                          alt="product"
                                                          style="width:35px"
                                                          class="rounded mr-2">
-                                                    <a href="#">Nome</a>
+                                                    <a href="#">{{$e->artigos->nome}}</a>
                                                 </td>
                                                 <td style="width: 120px;"
                                                     class="text-center">
