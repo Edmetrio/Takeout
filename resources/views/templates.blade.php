@@ -357,6 +357,11 @@
                                                 <span class="sidebar-menu-text">Lista de Estoques</span>
                                             </a>
                                         </li>
+                                        <li class="sidebar-menu-item active">
+                                            <a class="sidebar-menu-button" href="{{url('aumenta')}}">
+                                                <span class="sidebar-menu-text">Lista de Entrada de Estoque</span>
+                                            </a>
+                                        </li>
                                         <li class="sidebar-menu-item">
                                             <a class="sidebar-menu-button" href="{{url('estoque/create')}}">
                                                 <span class="sidebar-menu-text">Adicionar Estoque</span>
