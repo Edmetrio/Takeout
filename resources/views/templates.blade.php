@@ -389,7 +389,7 @@
                                 </a>
                                 <ul class="sidebar-submenu collapse" id="processo">
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('produto')}}">
+                                        <a class="sidebar-menu-button" href="{{url('processo')}}">
                                             <span class="sidebar-menu-text">Listar o Porcesso</span>
                                         </a>
                                     </li>
