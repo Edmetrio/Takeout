@@ -45,11 +45,11 @@
                                 <thead>
                                     <tr>
 
-                                        <th>Nome da Categoria</th>
+                                        <th style="width: 200px;">Nome do Produto</th>
 
-                                        <th style="width: 37px;">Estado</th>
                                         <th style="width: 37px;">Categoria</th>
-                                        <th style="width: 120px;">icon</th>
+                                        <th style="width: 37px;">Preço</th>
+                                        <th style="width: 20px;">icon</th>
                                         <th style="width: 24px;">Acções</th>
                                     </tr>
                                 </thead>
