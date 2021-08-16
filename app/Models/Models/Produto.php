@@ -25,6 +25,6 @@ class Produto extends Model
 
     public function processos()
     {
-        return $this->belongsToMany(Processo::class);
+        return $this->hasMany(Processo::class, 'produto_id');
     }
 }
