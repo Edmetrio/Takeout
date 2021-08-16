@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Models\AumentaEstoque;
 use App\Models\Models\Estoque;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -50,5 +51,10 @@ class User extends Authenticatable
     public function estoques()
     {
         return $this->hasMany(Estoque::class, 'users_id');
+    }
+
+    public function aumentaestoques()
+    {
+        return $this->hasMany(AumentaEstoque::class);
     }
 }
