@@ -344,6 +344,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                             <li class="sidebar-menu-item">
                                     <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
                                         <i
@@ -357,18 +358,13 @@
                                                 <span class="sidebar-menu-text">Lista de Estoques</span>
                                             </a>
                                         </li>
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{url('aumenta')}}">
-                                                <span class="sidebar-menu-text">Lista de Entrada de Estoque</span>
-                                            </a>
-                                        </li>
                                         <li class="sidebar-menu-item">
                                             <a class="sidebar-menu-button" href="{{url('estoque/create')}}">
                                                 <span class="sidebar-menu-text">Adicionar Estoque</span>
                                             </a>
                                         </li>
                                         <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="{{url('aumenta/create')}}">
+                                            <a class="sidebar-menu-button" href="fluid-ui-forms.html">
                                                 <span class="sidebar-menu-text">Entrada de Estoque</span>
                                             </a>
                                         </li>
@@ -384,6 +380,26 @@
                                         </li>
                                     </ul>
                                 </li>
+
+                                <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#processo">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Processo</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="processo">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('produto')}}">
+                                            <span class="sidebar-menu-text">Listar o Porcesso</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('processo/create')}}">
+                                            <span class="sidebar-menu-text">Adicionar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                         <div class="sidebar-heading">Perfil</div>
                         <div class="sidebar-block p-0 mb-0">
