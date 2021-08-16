@@ -16,7 +16,9 @@ class EntradaEstoqueController extends Controller
      */
     public function index()
     {
-        //
+        $aumento = AumentaEstoque::with(['users','artigos'])->get();
+        /* dd($aumento); */
+        return view('Aumento', compact('aumento'));
     }
 
     /**
@@ -38,11 +40,6 @@ class EntradaEstoqueController extends Controller
      */
     public function store(Request $request)
     {
-        /* return $request->preco_compra; */
-        /* $aumento = Estoque::where('artigo_id', $request->artigo_id)->first();
-        $estoque = $aumento->quantidade + $request->quantidade; */
-        /* dd($estoque); */
-
         $request->validate([
             'artigo_id' => 'required',
             'quantidade' => 'required|numeric',
