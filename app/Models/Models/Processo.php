@@ -20,11 +20,11 @@ class Processo extends Model
 
     public function artigos()
     {
-        return $this->hasMany(Artigo::class);
+        return $this->belongsTo(Artigo::class);
     }
 
     public function produtos()
     {
-        return $this->belongsTo(Produto::class);
+        return $this->hasOne(Produto::class, 'id', 'produto_id');
     }
 }
