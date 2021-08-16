@@ -26,4 +26,9 @@ class Artigo extends Model
     {
         return $this->hasMany(AumentaEstoque::class);
     }
+
+    public function processo()
+    {
+        return $this->belongsToMany(Processo::class);
+    }
 }
