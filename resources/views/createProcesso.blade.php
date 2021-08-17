@@ -40,37 +40,35 @@
                         @endif
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
-                            <form method="POST" action="{{url('processo')}}">
-                                @csrf
-                                <div class="was-validated">
-                                    <div class="form-row">
-                                    <div class="col-12 col-md-6 mb-12">
-                                            <label for="validationSample01">Nome do Produto</label>
-                                            <select name="produto_id" id="produto_id">
-                                               
-                                                @foreach($produto as $p)
-                                                <option value="{{$p->id}}">{{$p->nome}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-12 col-md-6 mb-12">
-                                            <label for="validationSample01">Nome do Artigo</label>
-                                            <select name="artigo_id" id="artigo_id">
-                                               
-                                                @foreach($artigo as $a)
-                                                <option value="{{$a->id}}">{{$a->nome}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-12 col-md-6 mb-3">
-                                            <label for="validationSample01">Quantidade</label>
-                                            <input type="text" class="form-control" name="quantidade" placeholder="12" required="">
-                                            <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
-                                        </div>
+                        <form method="POST" action="{{url('processo')}}">
+                            @csrf
+                            <div class="was-validated">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="validationSample01">Nome do Produto</label>
+                                        <select name="produto_id" id="produto_id" class="form-control">
+                                            @foreach($produto as $p)
+                                            <option value="{{$p->id}}">{{$p->nome}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="validationSample01">Nome do Artigo</label>
+                                        <select name="artigo_id" id="artigo_id" class="form-control">
+                                            @foreach($artigo as $a)
+                                            <option value="{{$a->id}}">{{$a->nome}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="validationSample01">Quantidade</label>
+                                        <input type="text" class="form-control" name="quantidade" placeholder="12" required="">
+                                        <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit">@if(isset($produto))Alterar @else Submeter @endif</button>
-                            </form>
+                            </div>
+                            <button class="btn btn-primary" type="submit">@if(isset($produto))Alterar @else Submeter @endif</button>
+                        </form>
                     </div>
                 </div>
             </div>
