@@ -287,44 +287,10 @@
                                             <span class="sidebar-menu-text">Listar</span>
                                         </a>
                                     </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('categoria/create')}}">
-                                            <span class="sidebar-menu-text">Adicionar</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="app-projects.html">
-                                            <span class="sidebar-menu-text">Projects</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="app-fullcalendar.html">
-                                            <span class="sidebar-menu-text">Event Calendar</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="app-chat.html">
-                                            <span class="sidebar-menu-text">Chat</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="app-email.html">
-                                            <span class="sidebar-menu-text">Email</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item ">
-                                        <a class="sidebar-menu-button" data-toggle="collapse" href="#course_menu">
-                                            <span class="sidebar-menu-text">Education</span>
-                                            <span class="ml-auto d-flex align-items-center">
-                                                <span class="badge badge-primary">NEW</span>
-                                                <span class="sidebar-menu-toggle-icon"></span>
-                                            </span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
 
-                            
+
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#pages_menu">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
@@ -337,51 +303,45 @@
                                             <span class="sidebar-menu-text">Listar os Produtos</span>
                                         </a>
                                     </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">view_compact</i>
+                                    <span class="sidebar-menu-text">Estoque</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="layouts_menu">
+                                    <li class="sidebar-menu-item active">
+                                        <a class="sidebar-menu-button" href="{{url('estoque')}}">
+                                            <span class="sidebar-menu-text">Lista de Estoques</span>
+                                        </a>
+                                    </li>
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('produto/create')}}">
-                                            <span class="sidebar-menu-text">Adicionar</span>
+                                        <a class="sidebar-menu-button" href="{{url('estoque/create')}}">
+                                            <span class="sidebar-menu-text">Adicionar Estoque</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="fluid-ui-forms.html">
+                                            <span class="sidebar-menu-text">Entrada de Estoque</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('artigo/create')}}">
+                                            <span class="sidebar-menu-text">Adicionar Artigo</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('artigo')}}">
+                                            <span class="sidebar-menu-text">lista do artigo</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
-                                        <i
-                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">view_compact</i>
-                                        <span class="sidebar-menu-text">Estoque</span>
-                                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                    </a>
-                                    <ul class="sidebar-submenu collapse" id="layouts_menu">
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{url('estoque')}}">
-                                                <span class="sidebar-menu-text">Lista de Estoques</span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="{{url('estoque/create')}}">
-                                                <span class="sidebar-menu-text">Adicionar Estoque</span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="fluid-ui-forms.html">
-                                                <span class="sidebar-menu-text">Entrada de Estoque</span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="{{url('artigo/create')}}">
-                                                <span class="sidebar-menu-text">Adicionar Artigo</span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-menu-item">
-                                            <a class="sidebar-menu-button" href="{{url('artigo')}}">
-                                                <span class="sidebar-menu-text">lista do artigo</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#processo">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
                                     <span class="sidebar-menu-text">Processo</span>
@@ -396,6 +356,21 @@
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="{{url('processo/create')}}">
                                             <span class="sidebar-menu-text">Adicionar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#venda">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Vendas</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="venda">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('venda/create')}}">
+                                            <span class="sidebar-menu-text">Venda</span>
                                         </a>
                                     </li>
                                 </ul>
