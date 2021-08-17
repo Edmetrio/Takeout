@@ -49,10 +49,10 @@ class ProcessoController extends Controller
         $processo = Processo::create($request->all());
         if ($processo) {
             $request->session()->flash('status', 'Processo adicionado!');
-            return redirect('processo/create');
+            return redirect('processo');
         }
         $request->session()->flash('status', 'Erro ao Adicionar!');
-        return redirect('processo/create');
+        return redirect('processo');
     }
 
     /**
