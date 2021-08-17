@@ -28,8 +28,8 @@
             <div class="card card-form">
                 <div class="row no-gutters">
                     <div class="col-lg-4 card-body">
-                        <p><strong class="headings-color">Categoria</strong></p>
-                        <p class="text-muted">As Categorias Existentes no sistema são: Hambúrgueres, Racheis, Dose de Batatas e de Frango
+                        <p><strong class="headings-color">Produto</strong></p>
+                        <p class="text-muted">Os Produtos Existentes no sistema são: Hambúrgueres, Racheis, Dose de Batatas e de Frango
                         </p>
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
@@ -42,12 +42,12 @@
                             @csrf
                             <div class="was-validated">
                                 <div class="form-row">
-                                    <div class="col-12 col-md-6 mb-12">
-                                    <label for="validationSample01">Nome</label>
-                                        <select name="categoria_id" id="categoria_id">
+                                    <div class="col-md-6">
+                                        <label for="validationSample01">Nome da Categoria</label>
+                                        <select name="categoria_id" id="categoria_id" class="form-control">
                                         <option value="{{$produto->categorias->id ?? ''}}">{{$produto->categorias->nome ?? 'Seleccione a Categoria'}}</option>
                                             @foreach($categoria as $c)
-                                                <option value="{{$c->id}}">{{$c->nome}}</option>
+                                            <option value="{{$c->id}}">{{$c->nome}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" type="submit">@if(isset($produto))Alterar @else Submeter @endif</button>
+                            <button class="btn btn-primary" type="submit">@if(isset($produto))Alterar @else Adicionar @endif</button>
                         </form>
                     </div>
                 </div>
