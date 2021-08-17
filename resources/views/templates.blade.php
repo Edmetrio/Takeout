@@ -319,18 +319,8 @@
                                         </a>
                                     </li>
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('estoque/create')}}">
-                                            <span class="sidebar-menu-text">Adicionar Estoque</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="fluid-ui-forms.html">
                                             <span class="sidebar-menu-text">Entrada de Estoque</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('artigo/create')}}">
-                                            <span class="sidebar-menu-text">Adicionar Artigo</span>
                                         </a>
                                     </li>
                                     <li class="sidebar-menu-item">
@@ -351,11 +341,6 @@
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="{{url('processo')}}">
                                             <span class="sidebar-menu-text">Listar o Porcesso</span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('processo/create')}}">
-                                            <span class="sidebar-menu-text">Adicionar</span>
                                         </a>
                                     </li>
                                 </ul>

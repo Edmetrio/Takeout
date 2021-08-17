@@ -5,17 +5,19 @@
 <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
     <div class="mdk-drawer-layout__content page">
 
-        <div class="container-fluid page__heading-container">
-            <div class="page__heading">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                        <li class="breadcrumb-item">UI Components</li>
-                        <li class="breadcrumb-item active" aria-current="page">Tables</li>
-                    </ol>
-                </nav>
-
-                <h1 class="m-0">Lista dos produtos</h1>
+    <div class="container-fluid page__heading-container">
+            <div class="page__heading d-flex align-items-center">
+                <div class="flex">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
+                        <li class="breadcrumb-item">UI Produtos</li>
+                            <li class="breadcrumb-item active">Listas</li>
+                        </ol>
+                    </nav>
+                    <h1 class="m-0">Lista dos Produtos</h1>
+                </div>
+                <a href="{{url('categoria/create')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
         @if(session('status'))
@@ -47,7 +49,7 @@
 
                                         <th style="width: 200px;">Nome do Produto</th>
 
-                                        <th style="width: 37px;">Categoria</th>
+                                        <th style="width: 37px;">Matéria-Prima</th>
                                         <th style="width: 37px;">Preço</th>
                                         <th style="width: 20px;">icon</th>
                                         <th style="width: 24px;">Acções</th>

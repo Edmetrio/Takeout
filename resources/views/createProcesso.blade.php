@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="validationSample01">Quantidade</label>
-                                        <input type="text" class="form-control" name="quantidade" placeholder="12" required="">
+                                        <input type="numeric" class="form-control" name="quantidade" placeholder="12" required="">
                                         <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
                                     </div>
                                 </div>
