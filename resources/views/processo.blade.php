@@ -54,17 +54,15 @@
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="staff02">
-                                    @foreach($produto as $p)
-                                    @php
-                                    $categoria = $p->find($p->id)->categorias;
-                                    @endphp
+                                    
                                     <p></p>
+                                    @foreach($processo as $p)
                                     <tr>
-                                        <td><span class="js-lists-values-employee-name">{{$p->nome}}</span></td>
-                                        <td><span class="js-lists-values-employee-name">{{$categoria->nome}}</span></td>
-                                        <td><span class="badge badge-warning">{{$p->preco}}</span></td>
-                                        <td>{{$p->icon}}</td>
-                                        <td class="text-right"><a href="{{url("produto/$p->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
+                                        <td><span class="js-lists-values-employee-name">{{$p->produtos->nome}}</span></td>
+                                        <td><span class="js-lists-values-employee-name">{{$p->artigos->nome}}</span></td>
+                                        <td><span class="badge badge-warning">{{$p->quantidade}}</span></td>
+                                        <td></td>
+                                        <td class="text-right"><a href="" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
