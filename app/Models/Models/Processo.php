@@ -20,7 +20,7 @@ class Processo extends Model
 
     public function artigos()
     {
-        return $this->belongsTo(Artigo::class);
+        return $this->hasOne(Artigo::class, 'id', 'artigo_id');
     }
 
     public function produtos()
