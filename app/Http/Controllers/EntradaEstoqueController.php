@@ -28,7 +28,7 @@ class EntradaEstoqueController extends Controller
      */
     public function create()
     {
-        $artigo = Artigo::latest()->get();
+        $artigo = Estoque::with('artigos')->get();
         return view('createEntradaEstoque', compact('artigo'));
     }
 
