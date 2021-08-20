@@ -15,7 +15,7 @@
                     </ol>
                 </nav>
 
-                <h1 class="m-0">@if(isset($produto))Alterar @else Cadastro @endif da Produto</h1>
+                <h1 class="m-0">@if(isset($produto))Alterar @else Cadastro @endif do Histórico de compras</h1>
             </div>
         </div>
         @if(session('status'))
@@ -28,8 +28,8 @@
             <div class="card card-form">
                 <div class="row no-gutters">
                     <div class="col-lg-4 card-body">
-                        <p><strong class="headings-color">Categoria</strong></p>
-                        <p class="text-muted">As Categorias Existentes no sistema são: Hambúrgueres, Racheis, Dose de Batatas e de Frango
+                        <p><strong class="headings-color">Histórico de Compras</strong></p>
+                        <p class="text-muted">Histórico de compras Existentes no sistema são: Hambúrgueres, Racheis, Dose de Batatas e de Frango
                         </p>
                     </div>
                     <div>
@@ -49,12 +49,12 @@
                                 @csrf
                                 <div class="was-validated">
                                     <div class="form-row">
-                                        <div class="col-12 col-md-6 mb-12">
-                                            <label for="validationSample01">Nome</label>
-                                            <select name="artigo_id" id="artigo_id">
-
+                                        <div class="col-md-6">
+                                            <label for="validationSample01">Nome do Artigo</label>
+                                            <select name="artigo_id" id="artigo_id" class="form-control">
+                                                <option value="">Seleccione o artigo</option>
                                                 @foreach($artigo as $a)
-                                                <option value="{{$a->id}}">{{$a->nome}}</option>
+                                                <option value="{{$a->artigos->id}}">{{$a->artigos->nome}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
