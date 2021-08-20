@@ -15,8 +15,9 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produto = Produto::with('categorias')->latest()->get();
-        return view('produto', compact('produto'));
+        /* $produto = Produto::with('categorias')->latest()->get(); */
+        $categoria = Categoria::with('produtos')->get();
+        return view('produto', compact('categoria'));
     }
 
     /**
@@ -43,13 +44,23 @@ class ProdutoController extends Controller
         $request->validate([
             'categoria_id' => 'required',
             'nome' => 'required|unique:produto',
-            'icon' => 'required',
+            'icon' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'preco' => 'required|numeric',
         ]);
 
-        Produto::create($request->all());
-
-        $request->session()->flash('status', 'Produto adicionado com Sucesso!');
+        $input = $request->all();
+        $icon = time().'.'.$request->icon->extension();
+        $destino =  'assets/images/produtos';
+        $request->icon->move($destino, $icon);
+        $input['icon'] = "$icon";
+        
+        $produto = Produto::create($input);
+        if($produto)
+        {
+            $request->session()->flash('status', 'Produto adicionado com Sucesso!');
+            return redirect('produto');
+        }
+        $request->session()->flash('status', 'Erro ao Adicionar!');
         return redirect('produto');
     }
 
