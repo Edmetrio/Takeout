@@ -319,7 +319,7 @@
                                         </a>
                                     </li>
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="fluid-ui-forms.html">
+                                        <a class="sidebar-menu-button" href="{{url('aumenta')}}">
                                             <span class="sidebar-menu-text">Entrada de Estoque</span>
                                         </a>
                                     </li>
@@ -354,7 +354,7 @@
                                 </a>
                                 <ul class="sidebar-submenu collapse" id="venda">
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('venda/create')}}">
+                                        <a class="sidebar-menu-button" href="{{url('venda')}}">
                                             <span class="sidebar-menu-text">Venda</span>
                                         </a>
                                     </li>
