@@ -11,7 +11,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                        <li class="breadcrumb-item">UI Categorias</li>
+                            <li class="breadcrumb-item">UI Categorias</li>
                             <li class="breadcrumb-item active">Produto</li>
                         </ol>
                     </nav>
@@ -48,25 +48,26 @@
                                     <tr>
 
                                         <th style="width: 200px;">Nome do Produto</th>
-
-                                        <th style="width: 37px;">Categoria</th>
                                         <th style="width: 37px;">Preço</th>
                                         <th style="width: 20px;">icon</th>
                                         <th style="width: 24px;">Acções</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="staff02">
-                                    @foreach($produto as $p)
-                                    @php
-                                    $categoria = $p->find($p->id)->categorias;
-                                    @endphp
+                                    @foreach($categoria as $c)
                                     <p></p>
                                     <tr>
+                                        <td>
+                                        <strong><span class="js-lists-values-employee-name">{{$c->nome}}</span></strong>
+                                        @foreach($c->produtos as $p)
+                                        <tr>
                                         <td><span class="js-lists-values-employee-name">{{$p->nome}}</span></td>
-                                        <td><span class="js-lists-values-employee-name">{{$categoria->nome}}</span></td>
-                                        <td><span class="badge badge-warning">{{$p->preco}}</span></td>
-                                        <td>{{$p->icon}}</td>
+                                        <td><span class="js-lists-values-employee-name">{{$p->preco}}</span></td>
+                                        <td><img src="assets/images/produtos/{{$p->icon}}" style="width: 40px; height: 40px;"></span></td>
                                         <td class="text-right"><a href="{{url("produto/$p->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
+                                        </tr>
+                                        @endforeach
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
