@@ -17,7 +17,7 @@
                     </nav>
                     <h1 class="m-0">Lista dos Produtos</h1>
                 </div>
-                <a href="{{url('categoria/create')}}" class="btn btn-success ml-3">Adicionar</a>
+                <a href="{{url('processo/create')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
         @if(session('status'))
@@ -31,8 +31,8 @@
             <div class="card card-form">
                 <div class="row no-gutters">
                     <div class="col-lg-4 card-body">
-                        <p><strong class="headings-color">Lista de Todas Categorias</strong></p>
-                        <p class="text-muted">Encontra listada todas categorias existentes na sua loja virtual</p>
+                        <p><strong class="headings-color">Lista de Todos Processos</strong></p>
+                        <p class="text-muted">Encontra listada todos Processos existentes na sua loja virtual</p>
                     </div>
                     <div class="col-lg-8 card-form__body">
 
@@ -48,7 +48,6 @@
                                     <tr>
 
                                         <th style="width: 200px;">Nome do Produto</th>
-
                                         <th style="width: 37px;">Matéria-Prima</th>
                                         <th style="width: 37px;">Preço</th>
                                         <th style="width: 20px;">icon</th>
@@ -60,7 +59,7 @@
                                     <p></p>
                                     @foreach($processo as $p)
                                     <tr>
-                                        <td><span class="js-lists-values-employee-name">{{$p->produtos->nome}}</span></td>
+                                        <td><span class="js-lists-values-employee-name">{{$p->produtos->nome}}</span>
                                         <td><span class="js-lists-values-employee-name">{{$p->artigos->nome}}</span></td>
                                         <td><span class="badge badge-warning">{{$p->quantidade}}</span></td>
                                         <td></td>
