@@ -62,7 +62,7 @@
                                             <span class="js-lists-values-employee-name">{{$c->nome}}</span>
                                         </td>
                                         <td><span class="badge badge-warning">{{$c->estado}}</span></td>
-                                        <td>{{$c->icon}}</td>
+                                        <td><img src="assets/images/categorias/{{$c->icon}}" style="width: 40px; height: 40px;"></td>
                                         <td class="text-right"><a href="{{url("categoria/$c->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
