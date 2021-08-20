@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\itemvenda;
+use App\Models\Models\Venda;
 use Illuminate\Http\Request;
 
 class VendaController extends Controller
@@ -13,7 +15,16 @@ class VendaController extends Controller
      */
     public function index()
     {
-        //
+        $venda = Venda::latest()->first();
+        $item = itemvenda::with(['produtos'])->latest()->get();
+        $t = 0;
+        foreach($item as $i)
+        {
+            $i->subtotal = $i->quantidade * $i->produtos->preco;
+            $t += $i->subtotal;
+        }     
+        $total = $t;   
+        return view('venda', compact('venda','item','total'));
     }
 
     /**
@@ -34,7 +45,15 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $venda = Venda::create([
+            'users_id' => $request->users_id,
+        ]);
+        if ($venda) {
+            $request->session()->flash('status', 'Venda Iniciada!');
+            return redirect('venda');
+        }
+            $request->session()->flash('status', 'Erro na Venda!');
+            return redirect('venda');
     }
 
     /**
