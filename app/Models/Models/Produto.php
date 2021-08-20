@@ -27,4 +27,9 @@ class Produto extends Model
     {
         return $this->hasMany(Processo::class, 'produto_id');
     }
+
+    public function itemvendas()
+    {
+        return $this->hasMany(itemvenda::class, 'produto_id');
+    }
 }
