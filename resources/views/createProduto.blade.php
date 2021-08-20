@@ -37,7 +37,7 @@
                             <form method="POST" action="{{url("produto/$produto->id")}}">
                             @method('PUT')
                         @else
-                            <form method="POST" action="{{url('produto')}}">
+                            <form method="POST" action="{{url('produto')}}" enctype="multipart/form-data">
                         @endif
                             @csrf
                             <div class="was-validated">
