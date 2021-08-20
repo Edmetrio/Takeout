@@ -36,18 +36,25 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $validacao = $request->validate([
+        
+        $request->validate([
             'nome' => 'required|unique:categoria',
-            'icon' => 'required',
-            'estado' => 'required',
+            'icon' =>  'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        if ($validacao) {
-            Categoria::create($request->all());
 
+        $input = $request->all();
+        $icon = time().'.'.$request->icon->extension();
+        $destino =  'assets/images/categorias';
+        $request->icon->move($destino, $icon);
+        $input['icon'] = "$icon";
+
+        $categoria = Categoria::create($input);
+
+        if ($categoria) {
             $request->session()->flash('status', 'Categoria adicionada com Sucesso!');
             return redirect('categoria');
         }
-        $request->session()->flash('status', $validacao);
+        $request->session()->flash('status', 'Erro ao Adicionar');
         return redirect('categoria');
     }
 
