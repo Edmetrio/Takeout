@@ -50,10 +50,10 @@ class EstoqueController extends Controller
         $estoque = Estoque::create($request->all());
         if ($estoque) {
             $request->session()->flash('status', 'Item Estoque adicionado com Sucesso!');
-            return redirect('estoque/create');
+            return redirect('estoque');
         }
         $request->session()->flash('status', 'Erro ao Adicionar!');
-        return redirect('/');
+        return redirect('estoque');
     }
 
     /**
