@@ -37,7 +37,7 @@
                         <form method="POST" action="{{url("categoria/$categoria->id")}}">
                             @method('PUT')
                             @else
-                            <form method="POST" action="{{url('categoria')}}">
+                            <form method="POST" action="{{url('categoria')}}" enctype="multipart/form-data">
                                 @endif
                                 @csrf
                                 <div class="was-validated">
