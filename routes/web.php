@@ -4,6 +4,7 @@ use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EntradaEstoqueController;
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\ItemVendaController;
 use App\Http\Controllers\ProcessoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\VendaController;
@@ -42,5 +43,8 @@ Route::resource('aumenta', EntradaEstoqueController::class);
 Route::resource('processo', ProcessoController::class);
 
 Route::resource('venda', VendaController::class);
+Route::post('iniciar', [VendaController::class, 'store']);
+
+Route::resource('itemvenda', ItemVendaController::class);
 
 require __DIR__.'/auth.php';
