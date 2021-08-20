@@ -44,10 +44,10 @@ class ArtigoController extends Controller
         if($artigo)
         {
             $request->session()->flash('status', 'Artigo adicionada com Sucesso!');
-            return redirect('artigo/create'); 
+            return redirect('artigo'); 
         }
         $request->session()->flash('status', 'Artigo Actualizado com Sucesso!');
-            return redirect('artigo/create');
+            return redirect('artigo');
 
     }
 
