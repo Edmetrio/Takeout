@@ -46,5 +46,6 @@ Route::resource('venda', VendaController::class);
 Route::post('iniciar', [VendaController::class, 'store']);
 
 Route::resource('itemvenda', ItemVendaController::class);
+Route::post('item', [ItemVendaController::class,'item']);
 
 require __DIR__.'/auth.php';
