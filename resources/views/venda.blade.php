@@ -28,12 +28,6 @@
                         <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
                         <button class="btn btn-primary" type="submit">Iniciar</button>
                     </form>
-                @elseif(isset($venda->users_id) && !isset($venda->pagamento_id))
-                <form action="{{url('iniciar')}}" method="post">
-                        @csrf
-                        <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
-                        <button class="btn btn-primary" type="submit">Finalizar</button>
-                    </form>
                 @endif
                 <a href="{{url('itemvenda/create')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
@@ -86,7 +80,15 @@
                     </div>
                 </div>
             </div>
-
+            @if(isset($venda->users_id) && !isset($venda->pagamento_id))
+                <form action="{{url('item')}}" method="post">
+                        @csrf
+                        <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
+                        <input type="text" class="form-control" name="valor_total" value="{{$total}}" placeholder="12" required="">
+                        <input type="text" class="form-control" name="pagamento_id"  value="f9587ab4-c1f1-4c4f-bb73-cad838831a6d" placeholder="12" required="">
+                        <button class="btn btn-primary" type="submit" style="float: right;">Finalizar</button>
+                    </form>
+                @endif
         </div>
 
     </div>
