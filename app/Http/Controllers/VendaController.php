@@ -16,7 +16,7 @@ class VendaController extends Controller
     public function index()
     {
         $venda = Venda::latest()->first();
-        $item = itemvenda::with(['produtos'])->latest()->get();
+        $item = itemvenda::where('venda_id', $venda->id)->with(['produtos'])->latest()->get();
         $t = 0;
         foreach($item as $i)
         {
