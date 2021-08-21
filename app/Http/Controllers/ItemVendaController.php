@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Historico;
+use App\Models\Models\Itemhistorico;
 use App\Models\Models\itemvenda;
 use App\Models\Models\Produto;
 use App\Models\Models\Venda;
@@ -38,6 +40,31 @@ class ItemVendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function item(Request $request)
+    {
+        $venda = Venda::with('itemvendas')->latest()->first();
+        $item = itemvenda::where('venda_id', $venda->id)->get();
+        $historico = Historico::create([
+            'venda_id' => $venda->id,
+            'pagamento_id' => $request->pagamento_id,
+            'valor_total' => $request->valor_total,
+        ]);
+        foreach($item as $i)
+        {
+            Itemhistorico::create([
+                'historico_id' => $historico->id,
+                'produto_id' => $i->produto_id,
+                'quantidade' => $i->quantidade,
+            ]);
+        }
+       
+            Venda::where('id', $venda->id)->delete();
+            itemvenda::where('venda_id', $venda->id)->delete();
+            $request->session()->flash('status', 'Venda Finalizada!');
+                return redirect('venda');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
