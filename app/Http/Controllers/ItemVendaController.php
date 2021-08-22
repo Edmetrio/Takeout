@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Artigo;
+use App\Models\Models\Estoque;
 use App\Models\Models\Historico;
 use App\Models\Models\Itemhistorico;
 use App\Models\Models\itemvenda;
+use App\Models\Models\Processo;
 use App\Models\Models\Produto;
 use App\Models\Models\Venda;
 use Illuminate\Http\Request;
@@ -40,7 +43,11 @@ class ItemVendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
+    public function itemhistorico($i)
+    {
+        
+    }
+    
     public function item(Request $request)
     {
         $venda = Venda::with('itemvendas')->latest()->first();
@@ -58,7 +65,6 @@ class ItemVendaController extends Controller
                 'quantidade' => $i->quantidade,
             ]);
         }
-       
             Venda::where('id', $venda->id)->delete();
             itemvenda::where('venda_id', $venda->id)->delete();
             $request->session()->flash('status', 'Venda Finalizada!');
@@ -73,6 +79,20 @@ class ItemVendaController extends Controller
             'quantidade' => 'required|numeric',
         ]);
 
+        $item = Processo::where('produto_id', $request->produto_id)->with(['artigos'])->get();
+        
+        foreach($item as $im)
+        {
+            $estoque = Estoque::where('artigo_id', $im->artigos->id)->first();
+            $d = $estoque->quantidade - $request->quantidade;
+            if($estoque->quantidade >= $request->quantidade)
+            {
+                Estoque::where(['artigo_id' => $im->artigos->id])->update(['quantidade' => $d]);   
+            } else {
+            $request->session()->flash('status', 'Quantidade Inexistente!');
+            return redirect('venda');
+            }
+        }
         $item = itemvenda::create($request->all());
         if ($item) {
             $request->session()->flash('status', 'Item adicionado com Sucesso!');
