@@ -25,6 +25,6 @@ class Processo extends Model
 
     public function produtos()
     {
-        return $this->hasMany(Produto::class, 'id', 'produto_id');
+        return $this->hasOne(Produto::class, 'id', 'produto_id');
     }
 }
