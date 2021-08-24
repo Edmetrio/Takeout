@@ -17,7 +17,7 @@ class CreateVendasTable extends Migration
             $table->uuid('id')->primary()->default('1fed24c2-0cd9-4c3c-80f6-d873601fa103');
             $table->uuid('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->uuid('pagamento_id');
+            $table->uuid('pagamento_id')->default('1fed24c2-0cd9-4c3c-80f6-d873601fa103');
             $table->foreign('pagamento_id')->references('id')->on('pagamento')->onDelete('cascade')->onUpdate('cascade');
             $table->decimal('valor_total', 20,2);
             $table->timestamps();
