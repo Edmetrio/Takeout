@@ -33,7 +33,6 @@ class ItemVendaController extends Controller
     {
         $produto = Produto::with('processos')->get();
         $venda = Venda::latest()->first();
-        /* dd($produto); */
         return view('createitemvenda', compact('produto', 'venda'));
     }
 
@@ -45,9 +44,8 @@ class ItemVendaController extends Controller
      */
     public function itemhistorico($i)
     {
-        
     }
-    
+
     public function item(Request $request)
     {
         $venda = Venda::with('itemvendas')->latest()->first();
@@ -57,18 +55,17 @@ class ItemVendaController extends Controller
             'pagamento_id' => $request->pagamento_id,
             'valor_total' => $request->valor_total,
         ]);
-        foreach($item as $i)
-        {
+        foreach ($item as $i) {
             Itemhistorico::create([
                 'historico_id' => $historico->id,
                 'produto_id' => $i->produto_id,
                 'quantidade' => $i->quantidade,
             ]);
         }
-            Venda::where('id', $venda->id)->delete();
-            itemvenda::where('venda_id', $venda->id)->delete();
-            $request->session()->flash('status', 'Venda Finalizada!');
-                return redirect('venda');
+        Venda::where('id', $venda->id)->delete();
+        itemvenda::where('venda_id', $venda->id)->delete();
+        $request->session()->flash('status', 'Venda Finalizada!');
+        return redirect('venda');
     }
 
     public function store(Request $request)
@@ -80,17 +77,15 @@ class ItemVendaController extends Controller
         ]);
 
         $item = Processo::where('produto_id', $request->produto_id)->with(['artigos'])->get();
-        
-        foreach($item as $im)
-        {
+
+        foreach ($item as $im) {
             $estoque = Estoque::where('artigo_id', $im->artigos->id)->first();
             $d = $estoque->quantidade - $request->quantidade;
-            if($estoque->quantidade >= $request->quantidade)
-            {
-                Estoque::where(['artigo_id' => $im->artigos->id])->update(['quantidade' => $d]);   
+            if ($estoque->quantidade >= $request->quantidade) {
+                Estoque::where(['artigo_id' => $im->artigos->id])->update(['quantidade' => $d]);
             } else {
-            $request->session()->flash('status', 'Quantidade Inexistente!');
-            return redirect('venda');
+                $request->session()->flash('status', 'Quantidade Inexistente!');
+                return redirect('venda');
             }
         }
         $item = itemvenda::create($request->all());
@@ -98,8 +93,8 @@ class ItemVendaController extends Controller
             $request->session()->flash('status', 'Item adicionado com Sucesso!');
             return redirect('venda');
         }
-            $request->session()->flash('status', 'Erro ao Adicionar!');
-            return redirect('venda');
+        $request->session()->flash('status', 'Erro ao Adicionar!');
+        return redirect('venda');
     }
 
     /**
