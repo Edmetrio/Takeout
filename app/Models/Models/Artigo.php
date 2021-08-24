@@ -29,6 +29,6 @@ class Artigo extends Model
 
     public function processo()
     {
-        return $this->belongsToMany(Processo::class);
+        return $this->hasMany(Processo::class, 'artigo_id');
     }
 }
