@@ -48,13 +48,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function estoques()
+    public function eartigos()
     {
         return $this->hasMany(Estoque::class, 'users_id');
     }
 
-    public function aumentaestoques()
+    public function artigos()
     {
-        return $this->hasMany(AumentaEstoque::class);
+        return $this->hasMany(Artigo::class, 'entrada');
     }
 }
