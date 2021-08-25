@@ -5,6 +5,7 @@ namespace App\Models\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Uuid;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produto extends Model
 {
@@ -23,14 +24,15 @@ class Produto extends Model
         return $this->hasOne(Categoria::class, 'id', 'categoria_id');
     }
 
-    public function processos()
+    public function artigos()
     {
-        return $this->hasOne(Processo::class, 'produto_id');
+        return $this->hasMany(Artigo::class, 'processo');
     }
 
     public function itemvendas()
     {
         return $this->hasMany(itemvenda::class, 'produto_id');
     }
+
 
 }
