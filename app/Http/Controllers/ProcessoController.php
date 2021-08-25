@@ -18,7 +18,6 @@ class ProcessoController extends Controller
     {
         /* $processo = Processo::with(['produtos','artigos'])->get(); */
         $processo = Processo::with(['artigos','produtos'])->get();
-        dd($processo);
         return view('processo', compact('processo'));
     }
 
