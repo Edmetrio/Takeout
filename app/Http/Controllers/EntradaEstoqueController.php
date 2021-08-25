@@ -17,7 +17,6 @@ class EntradaEstoqueController extends Controller
     public function index()
     {
         $aumento = AumentaEstoque::with(['users','artigos'])->get();
-        /* dd($aumento); */
         return view('Aumento', compact('aumento'));
     }
 
