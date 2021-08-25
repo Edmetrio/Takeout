@@ -2,6 +2,7 @@
 
 namespace App\Models\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Uuid;
@@ -30,5 +31,10 @@ class Artigo extends Model
     public function produtos()
     {
         return $this->hasMany(Produto::class, 'processo');
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'entrada');
     }
 }
