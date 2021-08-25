@@ -29,7 +29,7 @@
     <link type="text/css" href="{{asset('assets/css/vendor-fontawesome-free.rtl.css')}}" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133433427-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133433427-1"></script -->>
     <script>
         window.dataLayer = window.dataLayer || [];
 
