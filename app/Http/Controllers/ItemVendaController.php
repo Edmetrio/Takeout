@@ -80,9 +80,7 @@ class ItemVendaController extends Controller
 
         foreach ($item as $im) {
             $estoque = Estoque::where('artigo_id', $im->artigos->id)->with('artigos')->first();
-            /* echo $im->artigos->nome . " " . "<br>" .$im->quantidade; */
             $diminui = $im->quantidade * $request->quantidade;
-            
             $d = $estoque->quantidade - $diminui;
             if ($estoque->quantidade >= $request->quantidade) {
                 Estoque::where(['artigo_id' => $im->artigos->id])->update(['quantidade' => $d]);
