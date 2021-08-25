@@ -27,8 +27,8 @@ class Artigo extends Model
         return $this->hasMany(AumentaEstoque::class);
     }
 
-    public function processo()
+    public function produtos()
     {
-        return $this->hasMany(Processo::class, 'artigo_id');
+        return $this->hasMany(Produto::class, 'processo');
     }
 }
