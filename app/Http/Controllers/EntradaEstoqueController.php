@@ -52,10 +52,10 @@ class EntradaEstoqueController extends Controller
             $estoque = $aumento->quantidade + $request->quantidade;
             Estoque::where(['artigo_id' => $request->artigo_id])->update(['quantidade' => $estoque, 'preco_compra' => $request->preco_compra]);
             $request->session()->flash('status', 'Aumentado no estoque!');
-            return redirect('aumenta/create');
+            return redirect('aumenta');
         }
         $request->session()->flash('status', 'Erro ao Aumentar!');
-        return redirect('aumenta/create');
+        return redirect('aumenta');
     }
 
     /**
