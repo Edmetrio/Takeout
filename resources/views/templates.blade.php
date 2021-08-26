@@ -214,24 +214,24 @@
                             <li class="nav-item dropdown">
                                 <a href="#account_menu" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
                                     <span class="mr-1 d-flex-inline">
-                                        <span class="text-light">Adrian D.</span>
+                                        <span class="text-light">{{ Auth::user()->name }}</span>
                                     </span>
                                     <img src="{{asset('assets/images/avatar/demi.png')}}" class="rounded-circle" width="32" alt="Frontted">
                                 </a>
                                 <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-item-text dropdown-item-text--lh">
-                                        <div><strong>Adrian Demian</strong></div>
-                                        <div class="text-muted">@adriandemian</div>
+                                        <div><strong>{{ Auth::user()->name }}</strong></div>
+                                        <div class="text-muted">{{ Auth::user()->email }}</div>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="index.html"><i class="material-icons">dvr</i>
-                                        Dashboard</a>
-                                    <a class="dropdown-item" href="profile.html"><i class="material-icons">account_circle</i> My profile</a>
+                                    <a class="dropdown-item" href="{{url('/')}}"><i class="material-icons">dvr</i>
+                                        Início</a>
+                                    <a class="dropdown-item" href="profile.html"><i class="material-icons">account_circle</i>Meu Perfil</a>
                                     <a class="dropdown-item" href="edit-account.html"><i class="material-icons">edit</i>
-                                        Edit account</a>
+                                        Alterar Conta</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="login.html"><i class="material-icons">exit_to_app</i>
-                                        Logout</a>
+                                        Sair</a>
                                 </div>
                             </li>
                         </ul>
@@ -262,8 +262,8 @@
                                 </a>
                                 <ul class="sidebar-submenu collapse" id="dashboards_menu">
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="index.html">
-                                            <span class="sidebar-menu-text">Default</span>
+                                        <a class="sidebar-menu-button" href="{{url('/')}}">
+                                            <span class="sidebar-menu-text">Início</span>
                                         </a>
                                     </li>
 
@@ -355,44 +355,68 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#tipo">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Tipo</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="tipo">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('tipo')}}">
+                                            <span class="sidebar-menu-text">Listar o Tipo</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#despesa">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Despesas</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="despesa">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('contapagar')}}">
+                                            <span class="sidebar-menu-text">Lista das Despesas</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                         <div class="sidebar-heading">Perfil</div>
-                        <div class="sidebar-block p-0 mb-0">
-
-                            <div class="sidebar-p-a sidebar-b-y">
-                                <div class="d-flex align-items-top mb-2">
-                                    <div class="sidebar-heading m-0 p-0 flex text-body js-text-body">Progress</div>
-                                    <div class="font-weight-bold text-success">60%</div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
                             <a href="profile.html" class="flex d-flex align-items-center text-underline-0 text-body">
                                 <span class="avatar avatar-sm mr-2">
                                     <img src="{{asset('assets/images/avatar/demi.png')}}" alt="avatar" class="avatar-img rounded-circle">
                                 </span>
-                                <span class="flex d-flex flex-column">
+                                <span class="flex d-flex flex-column" style="font-size: 12px;">
                                     <strong>{{ Auth::user()->name }}</strong>
-                                    <small class="text-muted text-uppercase">Site Manager</small>
                                 </span>
                             </a>
                             <div class="dropdown ml-auto">
                                 <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-item-text dropdown-item-text--lh">
-                                        <div><strong>Adrian Demian</strong></div>
-                                        <div>@adriandemian</div>
+                                        <div style="font-size: 10px;"><strong>{{ Auth::user()->name }}</strong></div>
+                                        <div style="font-size: 10px;">{{ Auth::user()->email }}</div>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="index.html">Dashboard</a>
-                                    <a class="dropdown-item" href="profile.html">My profile</a>
-                                    <a class="dropdown-item" href="edit-account.html">Edit account</a>
+                                    <a class="dropdown-item" href="{{url('/')}}"><i class="material-icons" style="width: 15px; margin-right: 15px;">dvr</i>Início</a>
+                                    <a class="dropdown-item" href="{{url('#')}}"><i class="material-icons" style="width: 10px; margin-right: 20px;">account_circle</i>Meu Perfil</a>
+                                    <a class="dropdown-item" href="{{url('#')}}"><i class="material-icons" style="width: 15px; margin-right: 15px;">edit</i>Alterar Conta</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html">Logout</a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                <button class="dropdown-item">Sair</button>
+                                            </a>
+                                        </form>
+                                    </a>
                                 </div>
                             </div>
                         </div>
