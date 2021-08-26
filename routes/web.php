@@ -4,6 +4,7 @@ use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EntradaEstoqueController;
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ItemVendaController;
 use App\Http\Controllers\ProcessoController;
 use App\Http\Controllers\ProdutoController;
@@ -22,9 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+Route::resource('/', InicioController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
