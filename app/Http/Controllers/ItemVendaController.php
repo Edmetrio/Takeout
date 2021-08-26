@@ -31,7 +31,7 @@ class ItemVendaController extends Controller
      */
     public function create()
     {
-        $produto = Produto::with('processos')->get();
+        $produto = Produto::with(['processos'])->get();
         $venda = Venda::latest()->first();
         return view('createitemvenda', compact('produto', 'venda'));
     }
