@@ -376,7 +376,7 @@
                                     <img src="{{asset('assets/images/avatar/demi.png')}}" alt="avatar" class="avatar-img rounded-circle">
                                 </span>
                                 <span class="flex d-flex flex-column">
-                                    <strong>{{ Auth::user()->name }}</strong>
+                                    <strong></strong>
                                     <small class="text-muted text-uppercase">Site Manager</small>
                                 </span>
                             </a>
