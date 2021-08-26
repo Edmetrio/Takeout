@@ -11,11 +11,11 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                        <li class="breadcrumb-item">UI Produtos</li>
+                        <li class="breadcrumb-item">UI Processos</li>
                             <li class="breadcrumb-item active">Listas</li>
                         </ol>
                     </nav>
-                    <h1 class="m-0">Lista dos Produtos</h1>
+                    <h1 class="m-0">Lista dos Processos</h1>
                 </div>
                 <a href="{{url('processo/create')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
@@ -46,11 +46,9 @@
                             <table class="table mb-0 thead-border-top-0">
                                 <thead>
                                     <tr>
-
                                         <th style="width: 200px;">Nome do Produto</th>
                                         <th style="width: 37px;">Matéria-Prima</th>
-                                        <th style="width: 37px;">Preço</th>
-                                        <th style="width: 20px;">icon</th>
+                                        <th style="width: 37px;">Unidade</th>
                                         <th style="width: 24px;">Acções</th>
                                     </tr>
                                 </thead>
@@ -62,18 +60,15 @@
                                         <td><span class="js-lists-values-employee-name">{{$p->produtos->nome}}</span>
                                         <td><span class="js-lists-values-employee-name">{{$p->artigos->nome}}</span></td>
                                         <td><span class="badge badge-warning">{{$p->quantidade}}</span></td>
-                                        <td></td>
                                         <td class="text-right"><a href="" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
