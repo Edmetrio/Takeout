@@ -8,8 +8,10 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ItemVendaController;
 use App\Http\Controllers\ProcessoController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\TipoController;
 use App\Http\Controllers\VendaController;
 use App\Models\Models\Artigo;
+use App\Models\Models\Tipo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +45,8 @@ Route::resource('estoque', EstoqueController::class);
 Route::resource('aumenta', EntradaEstoqueController::class);
 
 Route::resource('processo', ProcessoController::class);
+
+Route::resource('tipo', TipoController::class);
 
 Route::resource('venda', VendaController::class);
 Route::post('iniciar', [VendaController::class, 'store']);
