@@ -16,7 +16,6 @@ class ProcessoController extends Controller
      */
     public function index()
     {
-        /* $processo = Processo::with(['produtos','artigos'])->get(); */
         $processo = Processo::with(['artigos','produtos'])->get();
         return view('processo', compact('processo'));
     }
