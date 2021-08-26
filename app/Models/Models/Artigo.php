@@ -37,4 +37,5 @@ class Artigo extends Model
     {
         return $this->hasMany(User::class, 'entrada');
     }
+
 }

@@ -34,5 +34,15 @@ class Produto extends Model
         return $this->hasMany(itemvenda::class, 'produto_id');
     }
 
+    public function processos()
+    {
+        return $this->hasMany(Processo::class, 'produto_id');
+    }
+
+    /* public function proartigos()
+    {
+        return $this->hasManyThrough(Artigo::class, Processo::class, 'produto_id', 'artigo_id', 'id', 'id');
+    } */
+
 
 }
