@@ -17,7 +17,7 @@ class CreateContapagarsTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->uuid('estado_id');
+            $table->uuid('estado_id')->default('on');
             $table->foreign('estado_id')->references('id')->on('estado')->onDelete('cascade')->onUpdate('cascade');
             $table->uuid('tipo_id');
             $table->foreign('tipo_id')->references('id')->on('tipo')->onDelete('cascade')->onUpdate('cascade');
