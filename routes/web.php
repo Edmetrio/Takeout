@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ContapagarController;
 use App\Http\Controllers\EntradaEstoqueController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\InicioController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\VendaController;
 use App\Models\Models\Artigo;
+use App\Models\Models\Contapagar;
 use App\Models\Models\Tipo;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +49,8 @@ Route::resource('aumenta', EntradaEstoqueController::class);
 Route::resource('processo', ProcessoController::class);
 
 Route::resource('tipo', TipoController::class);
+
+Route::resource('contapagar', ContapagarController::class);
 
 Route::resource('venda', VendaController::class);
 Route::post('iniciar', [VendaController::class, 'store']);
