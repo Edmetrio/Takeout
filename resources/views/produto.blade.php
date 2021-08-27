@@ -30,7 +30,7 @@
 
             <div class="card card-form">
                 <div class="row no-gutters">
-                    <div class="col-lg-4 card-body">
+                    <div class="col-lg-3 card-body">
                         <p><strong class="headings-color">Lista de Todas Categorias</strong></p>
                         <p class="text-muted">Encontra listada todas categorias existentes na sua loja virtual</p>
                     </div>
