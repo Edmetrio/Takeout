@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Artigo::class, 'entrada');
     }
+
+    public function tipos()
+    {
+        return $this->hasMany(Tipo::class, 'contapagar');
+    }
 }
