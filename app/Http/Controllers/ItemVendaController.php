@@ -51,7 +51,7 @@ class ItemVendaController extends Controller
         $venda = Venda::with('itemvendas')->latest()->first();
         $item = itemvenda::where('venda_id', $venda->id)->get();
         $historico = Historico::create([
-            'venda_id' => $venda->id,
+            'users_id' => $request->users_id,
             'pagamento_id' => $request->pagamento_id,
             'valor_total' => $request->valor_total,
         ]);
@@ -62,8 +62,8 @@ class ItemVendaController extends Controller
                 'quantidade' => $i->quantidade,
             ]);
         }
-        Venda::where('id', $venda->id)->delete();
         itemvenda::where('venda_id', $venda->id)->delete();
+        Venda::where('id', $venda->id)->delete();
         $request->session()->flash('status', 'Venda Finalizada!');
         return redirect('venda');
     }
