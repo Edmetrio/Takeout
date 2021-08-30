@@ -16,5 +16,5 @@ class Historico extends Model
     protected $primaryKey = 'id';
 
     protected $table = 'historico';
-    protected $fillable = ['venda_id','pagamento_id','valor_total'];
+    protected $fillable = ['users_id','pagamento_id','valor_total'];
 }
