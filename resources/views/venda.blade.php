@@ -17,23 +17,23 @@
                     </nav>
                     <h1 class="m-0">Lista dos Produto</h1>
                 </div>
-                @if(!isset($venda->users_id) && !isset($venda->pagamento_id))
+                @if(!isset($venda->users_id) && !isset($venda->valor_total))
                 <form action="{{url('iniciar')}}" method="post">
                     @csrf
-                    <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
+                    <input type="text" class="form-control" name="users_id" hidden value="{{ Auth::user()->id  }}" placeholder="12" required="">
                     <button class="btn btn-primary" type="submit">Iniciar</button>
                 </form>
-                @elseif(!isset($venda->valor_total) && isset($venda->pagamento_id))
+                @elseif(!isset($venda->valor_total) && isset($venda->valor_total))
                 <form action="{{url('iniciar')}}" method="post">
                     @csrf
-                    <input type="text" class="form-control" name="users_id" hidden value="69b81095-f5f0-42a9-a68b-e6dbbceef0c2" placeholder="12" required="">
+                    <input type="text" class="form-control" name="users_id" hidden value="{{ Auth::user()->id  }}" placeholder="12" required="">
                     <button class="btn btn-primary" type="submit">Iniciar</button>
                 </form>
                 @endif
                 <a href="{{url('itemvenda/create')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
-        
+
         @if(session('status'))
         <div class="alert alert-success" role="alert" style="text-align: center; font-weight: bold;">
             <p class="status">{{session('status')}}</p>
@@ -82,12 +82,19 @@
                     </div>
                 </div>
             </div>
-            @if(isset($venda->users_id) && !isset($venda->pagamento_id))
+            @if(isset($venda->users_id) && !isset($venda->valor_total))
             <form action="{{url('item')}}" method="post">
                 @csrf
-                <input type="text" class="form-control" name="users_id"  value="{{ Auth::user()->id  }}" placeholder="12" required="">
+                <input type="text" class="form-control" name="users_id" value="{{ Auth::user()->id  }}" placeholder="12" required="">
                 <input type="text" class="form-control" name="valor_total" value="{{$total}}" placeholder="12" required="">
-                <input type="text" class="form-control" name="pagamento_id" value="f9587ab4-c1f1-4c4f-bb73-cad838831a6d" placeholder="12" required="">
+                <div class="col-md-6">
+                    <label for="validationSample01">Pagamento</label>
+                    <select name="pagamento_id" id="pagamento_id" class="form-control">
+                        @foreach($pagamento as $p)
+                        <option value="{{$p->id}}">{{$p->nome}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <button class="btn btn-primary" type="submit" style="float: right;">Finalizar</button>
             </form>
             @endif
