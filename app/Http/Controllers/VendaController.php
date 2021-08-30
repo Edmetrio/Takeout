@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Models\itemvenda;
+use App\Models\Models\Pagamento;
 use App\Models\Models\Venda;
 use Illuminate\Http\Request;
 
@@ -16,15 +17,21 @@ class VendaController extends Controller
     public function index()
     {
         $venda = Venda::latest()->first();
-        $item = itemvenda::where('venda_id', $venda->id)->with(['produtos'])->latest()->get();
-        $t = 0;
-        foreach($item as $i)
-        {
-            $i->subtotal = $i->quantidade * $i->produtos->preco;
-            $t += $i->subtotal;
-        }     
-        $total = $t;   
-        return view('venda', compact('venda','item','total'));
+        $pagamento = Pagamento::latest()->get();
+        if (isset($venda)) {
+            $item = itemvenda::where('venda_id', $venda->id)->with(['produtos'])->latest()->get();
+            $t = 0;
+            foreach ($item as $i) {
+                $i->subtotal = $i->quantidade * $i->produtos->preco;
+                $t += $i->subtotal;
+            }
+            $total = $t;
+            return view('venda', compact('venda', 'item', 'total', 'pagamento'));
+        } else {
+            $item = itemvenda::with(['produtos'])->latest()->get();
+            $total = 0.0;
+            return view('venda', compact('venda', 'item', 'total', 'pagamento'));
+        }
     }
 
     /**
@@ -52,8 +59,8 @@ class VendaController extends Controller
             $request->session()->flash('status', 'Venda Iniciada!');
             return redirect('venda');
         }
-            $request->session()->flash('status', 'Erro na Venda!');
-            return redirect('venda');
+        $request->session()->flash('status', 'Erro na Venda!');
+        return redirect('venda');
     }
 
     /**
