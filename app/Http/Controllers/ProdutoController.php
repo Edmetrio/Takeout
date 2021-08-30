@@ -103,11 +103,17 @@ class ProdutoController extends Controller
         $request->validate([
             'categoria_id' => 'required',
             'nome' => 'required|unique:produto',
-            'icon' => 'required',
+            'icon' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'preco' => 'required|numeric',
         ]);
 
-        $cat = $produto->update($request->all());
+        $input = $request->all();
+        $icon = time().'.'.$request->icon->extension();
+        $destino =  'assets/images/produtos';
+        $request->icon->move($destino, $icon);
+        $input['icon'] = "$icon";
+
+        $cat = $produto->update($input);
         if ($cat) {
             $request->session()->flash('status', 'Produto Actualizado com Sucesso!');
             return redirect('produto');
