@@ -16,9 +16,9 @@ class CreateItemhistoricosTable extends Migration
         Schema::create('itemhistorico', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('historico_id');
-            $table->foreign('historico_id')->references('id')->on('historico')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('historico_id')->references('id')->on('historico');
             $table->uuid('produto_id');
-            $table->foreign('produto_id')->references('id')->on('produto')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('produto_id')->references('id')->on('produto');
             $table->decimal('quantidade',20,2);
             $table->timestamps();
         });
