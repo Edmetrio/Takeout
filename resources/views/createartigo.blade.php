@@ -10,12 +10,12 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                        <li class="breadcrumb-item">UI Components</li>
-                        <li class="breadcrumb-item active" aria-current="page">Forms</li>
+                        <li class="breadcrumb-item">UI Artigo</li>
+                        <li class="breadcrumb-item active" aria-current="page">Formulário</li>
                     </ol>
                 </nav>
 
-                <h1 class="m-0">@if(isset($artigo))Alterar @else Cadastro @endif da Produto</h1>
+                <h1 class="m-0">@if(isset($artigo))Alterar @else Cadastro @endif da Artigo</h1>
             </div>
         </div>
         @if(session('status'))
