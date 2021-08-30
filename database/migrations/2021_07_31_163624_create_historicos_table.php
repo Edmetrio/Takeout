@@ -15,10 +15,10 @@ class CreateHistoricosTable extends Migration
     {
         Schema::create('historico', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('venda_id');
-            $table->foreign('venda_id')->references('id')->on('venda')->onDelete('cascade')->onUpdate('cascade');
+            $table->uuid('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->uuid('pagamento_id');
-            $table->foreign('pagamento_id')->references('id')->on('pagamento')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('pagamento_id')->references('id')->on('pagamento');
             $table->decimal('valor_total',20,2);
             $table->timestamps();
         });
