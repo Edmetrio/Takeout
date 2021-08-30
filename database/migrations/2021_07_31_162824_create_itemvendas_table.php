@@ -16,9 +16,9 @@ class CreateItemvendasTable extends Migration
         Schema::create('itemvenda', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('venda_id');
-            $table->foreign('venda_id')->references('id')->on('venda')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('venda_id')->references('id')->on('venda');
             $table->uuid('produto_id');
-            $table->foreign('produto_id')->references('id')->on('produto')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('produto_id')->references('id')->on('produto');
             $table->decimal('quantidade', 20,2);
             $table->timestamps();
         });
