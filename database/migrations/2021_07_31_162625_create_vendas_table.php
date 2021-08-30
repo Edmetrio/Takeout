@@ -14,12 +14,12 @@ class CreateVendasTable extends Migration
     public function up()
     {
         Schema::create('venda', function (Blueprint $table) {
-            $table->uuid('id')->primary()->default('1fed24c2-0cd9-4c3c-80f6-d873601fa103');
+            $table->uuid('id')->primary();
             $table->uuid('users_id');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->uuid('pagamento_id')->default('1fed24c2-0cd9-4c3c-80f6-d873601fa103');
-            $table->foreign('pagamento_id')->references('id')->on('pagamento')->onDelete('cascade')->onUpdate('cascade');
-            $table->decimal('valor_total', 20,2);
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->uuid('pagamento_id')->nullable();
+            $table->foreign('pagamento_id')->references('id')->on('pagamento');
+            $table->decimal('valor_total', 20,2)->nullable();
             $table->timestamps();
         });
     }
