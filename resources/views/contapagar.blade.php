@@ -49,7 +49,7 @@
                                         <th style="width: 70px;">Nome da Despesa</th>
                                         <th style="width: 150px;">Descrição</th>
                                         <th style="width: 30px;">Valor</th>
-                                        <th style="width: 100px;">Utilizador</th>
+                                        <!-- <th style="width: 100px;">Utilizador</th> -->
                                         <th style="width: 10px;">Acções</th>
                                     </tr>
                                 </thead>
@@ -60,7 +60,7 @@
                                         <td><span class="js-lists-values-employee-name">{{$c->tipos->nome}}</span>
                                         <td><span class="js-lists-values-employee-name"></span>{{$c->descricao}}</td>
                                         <td><span class="badge badge-warning"></span>{{$c->valor}}</td>
-                                        <td><span class="badge badge-warning"></span>{{$c->users->name}}</td>
+                                        <!-- <td><span class="badge badge-warning"></span>{{$c->users->name}}</td> -->
                                         <td class="text-right"><a href="" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                     </tr>
                                     @endforeach
