@@ -20,4 +20,10 @@ class Categoria extends Model
     {
         return $this->hasMany(Produto::class, 'categoria_id');
     }  
+
+    public function itemhistoricos()
+    {
+        /* return $this->hasManyThrough(Itemhistorico::class, Produto::class, 'categoria_id', 'produto_id', 'id', 'id'); */
+        return $this->hasManyThrough(Itemhistorico::class, Produto::class);
+    }
 }
