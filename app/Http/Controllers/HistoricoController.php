@@ -16,9 +16,18 @@ class HistoricoController extends Controller
      */
     public function index()
     {
-        $categoria = Categoria::with('itemhistoricos')->get();
+        $categoria = Categoria::with(['itemhistoricos','produtos'])->get();
+        $total =0.0;
+        foreach($categoria as $c)
+        {
+            foreach($c->itemhistoricos as $i)
+            {
+            $total += $i->quantidade;
+            }
+            $subtotal = $total;
+        }
         /* dd($categoria); */
-        return view('historico', compact('categoria'));
+        return view('historico', compact('categoria','subtotal'));
     }
 
     /**
