@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ContapagarController;
 use App\Http\Controllers\EntradaEstoqueController;
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ItemVendaController;
 use App\Http\Controllers\ProcessoController;
@@ -57,5 +58,7 @@ Route::post('iniciar', [VendaController::class, 'store']);
 
 Route::resource('itemvenda', ItemVendaController::class);
 Route::post('item', [ItemVendaController::class,'item']);
+
+Route::resource('historico', HistoricoController::class);
 
 require __DIR__.'/auth.php';
