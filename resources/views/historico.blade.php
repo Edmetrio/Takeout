@@ -46,10 +46,9 @@
                             <table class="table mb-0 thead-border-top-0">
                                 <thead>
                                     <tr>
-                                        <th style="width: 70px;">categoria/produto</th>
-                                        <th style="width: 150px;">Produto</th>
+                                        <th style="width: 300px;">categoria/produto</th>
+                                        <th style="width: 100px;">Produto</th>
                                         <th style="width: 30px;">Quantidade</th>
-                                        <th style="width: 100px;">Utilizador</th>
                                         <th style="width: 10px;">Acções</th>
                                     </tr>
                                 </thead>
@@ -58,7 +57,7 @@
                                     @foreach($categoria as $c)
                                     <tr>
                                         <td>
-                                            <span class="js-lists-values-employee-name">{{$c->nome}}</span>
+                                            <strong><span class="js-lists-values-employee-name">{{$c->nome}}</span></strong>
                                             @foreach($c->produtos as $p)
                                             <tr>
                                             <td><span class="js-lists-values-employee-name">{{$p->nome}}</span></td>
@@ -78,7 +77,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     @endsection
