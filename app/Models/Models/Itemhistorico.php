@@ -17,4 +17,9 @@ class Itemhistorico extends Model
 
     protected $table = 'itemhistorico';
     protected $fillable = ['historico_id','produto_id','quantidade'];
+
+    public function produtos()
+    {
+        return $this->hasOne(Produto::class, 'id','produto_id');
+    }
 }
