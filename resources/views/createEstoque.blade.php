@@ -44,14 +44,10 @@
                             @csrf
                             <div class="was-validated">
                                 <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="validationSample01">Nome do Artigo</label>
-                                        <select name="artigo_id" id="artigo_id" class="form-control">
-                                            <option value="">Seleccione o artigo</option>
-                                            @foreach($artigo as $a)
-                                            <option value="{{$a->id}}">{{$a->nome}}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="validationSample01">Nome</label>
+                                        <input type="text" class="form-control" name="nome" placeholder="Nome" value="" required="">
+                                        <input type="text" class="form-control" name="estado" placeholder="on" value="on" required="" hidden>
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="validationSample01">Quantidade</label>
