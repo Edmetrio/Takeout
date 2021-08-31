@@ -39,15 +39,28 @@ class EstoqueController extends Controller
      */
     public function store(Request $request)
     {
-        /* return $request->all(); */
-        $request->validate([
+        
+        /* $request->validate([
+            'nome' => 'required',
+            'esatdo' => 'required',
             'artigo_id' => 'required',
             'users_id' => 'required',
             'quantidade' => 'required',
             'quantidade_minima' => 'required|numeric',
-            'preco_compra' => 'required|numeric'
+            'preco_compra' => 'required|numeric',
+        ]); */
+        /* return $request->all(); */
+        $artigo = Artigo::create([
+            'nome' => $request->nome,
+            'estado' => $request->estado
         ]);
-        $estoque = Estoque::create($request->all());
+        $estoque = Estoque::create([
+            'artigo_id' => $artigo->id,
+            'users_id' => $request->users_id,
+            'quantidade' => $request->quantidade,
+            'quantidade_minima' => $request->quantidade_minima,
+            'preco_compra' => $request->preco_compra,
+        ]);
         if ($estoque) {
             $request->session()->flash('status', 'Item Estoque adicionado com Sucesso!');
             return redirect('estoque');
