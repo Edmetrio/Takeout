@@ -39,10 +39,9 @@ class Produto extends Model
         return $this->hasMany(Processo::class, 'produto_id');
     }
 
-    /* public function proartigos()
+    public function itemhistorico()
     {
-        return $this->hasManyThrough(Artigo::class, Processo::class, 'produto_id', 'artigo_id', 'id', 'id');
-    } */
-
+        return $this->hasMany(Itemhistorico::class, 'produto_id');
+    }
 
 }
