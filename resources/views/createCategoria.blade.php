@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
                         @if(isset($categoria))
-                        <form method="POST" action="{{url("categoria/$categoria->id")}}">
+                        <form method="POST" enctype="multipart/form-data" action="{{url("categoria/$categoria->id")}}">
                             @method('PUT')
                             @else
                             <form method="POST" action="{{url('categoria')}}" enctype="multipart/form-data">
