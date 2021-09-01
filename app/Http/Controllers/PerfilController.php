@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Perfil;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PerfilController extends Controller
 {
@@ -14,8 +16,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $user = User::latest()->get();
-        dd($user);
+        $id = Auth::id();
+        $user = User::with('perfils')->find($id);
+        /* dd($user); */
         return view('perfil', compact('user'));
     }
 
@@ -26,7 +29,7 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        //
+        return view('createPerfil');
     }
 
     /**
@@ -37,7 +40,28 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* return $request->input(); */
+        /* $request->validate([
+            'nome' => 'required',
+            'contacto' => 'required',
+            'endereco' => 'required',
+            'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]); */
+
+        $input = $request->all();
+        $foto = time().'.'.$request->foto->extension();
+        $destino =  'assets/images/perfil';
+        $request->foto->move($destino, $foto);
+        $input['foto'] = "$foto";
+
+        $perfil = Perfil::create($input);
+        if($perfil)
+        {
+            $request->session()->flash('status', 'Perfil adicionada com Sucesso!');
+            return redirect('perfil');
+        }
+        $request->session()->flash('status', 'Erro ao adicionar Perfil!');
+            return redirect('perfil');
     }
 
     /**
@@ -59,7 +83,8 @@ class PerfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::with('perfils')->find($id);
+        return view('createPerfil', compact('user'));
     }
 
     /**
@@ -71,7 +96,25 @@ class PerfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $foto = time().'.'.$request->foto->extension();
+        $destino =  'assets/images/perfil';
+        $request->foto->move($destino, $foto);
+        $input['foto'] = "$foto";
+
+        $perfil = Perfil::where(['users_id' => $id])->update([
+            'contacto' => $request->contacto,
+            'endereco' => $request->endereco,
+            'foto' => $foto,
+        ]);
+        User::where(['id' => $id])->update(['name' => $request->nome]);
+        if($perfil)
+        {
+            $request->session()->flash('status', 'Perfil Alterado com Sucesso!');
+            return redirect('perfil');
+        }
+        $request->session()->flash('status', 'Erro ao adicionar Perfil!');
+            return redirect('perfil');
     }
 
     /**
