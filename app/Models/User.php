@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Models\AumentaEstoque;
 use App\Models\Models\Estoque;
+use App\Models\Models\Perfil;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,5 +63,10 @@ class User extends Authenticatable
     public function tipos()
     {
         return $this->hasMany(Tipo::class, 'contapagar');
+    }
+
+    public function perfils()
+    {
+        return $this->hasOne(Perfil::class, 'users_id');
     }
 }
