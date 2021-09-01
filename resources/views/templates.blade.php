@@ -399,20 +399,6 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" data-toggle="collapse" href="#historico">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
-                                    <span class="sidebar-menu-text">Histórico</span>
-                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                </a>
-                                <ul class="sidebar-submenu collapse" id="historico">
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('historico')}}">
-                                            <span class="sidebar-menu-text">Lista do Histórico</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
 
                         </ul>
                         <div class="sidebar-heading">Perfil</div>
@@ -436,7 +422,7 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{url('/')}}"><i class="material-icons" style="width: 15px; margin-right: 15px;">dvr</i>Início</a>
                                     <a class="dropdown-item" href="{{url('perfil')}}"><i class="material-icons" style="width: 10px; margin-right: 20px;">account_circle</i>Meu Perfil</a>
-                                    <a class="dropdown-item" href="{{url('#')}}"><i class="material-icons" style="width: 15px; margin-right: 15px;">edit</i>Alterar Conta</a>
+                                    <a class="dropdown-item" href="#"><i class="material-icons" style="width: 15px; margin-right: 15px;">edit</i>Alterar Conta</a>
                                     <div class="dropdown-divider"></div>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
