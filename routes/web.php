@@ -8,6 +8,7 @@ use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ItemVendaController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ProcessoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TipoController;
@@ -60,5 +61,7 @@ Route::resource('itemvenda', ItemVendaController::class);
 Route::post('item', [ItemVendaController::class,'item']);
 
 Route::resource('historico', HistoricoController::class);
+
+Route::resource('perfil', PerfilController::class);
 
 require __DIR__.'/auth.php';
