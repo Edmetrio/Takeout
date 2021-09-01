@@ -18,6 +18,7 @@ class CreatePerfilsTable extends Migration
             $table->uuid('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('contacto')->nullable();
+            $table->string('foto')->nullable();
             $table->string('endereco')->nullable();
             $table->timestamps();
         });
