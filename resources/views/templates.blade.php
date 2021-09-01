@@ -64,12 +64,12 @@
                         </button>
 
                         <!-- Navbar Brand -->
-                        <a href="index.html">
+                        <a href="{{url('/')}}">
                             <td><img src="{{asset('assets/images/logo.png')}}"></span></td>
                         </a>
 
                         <form class="search-form d-none d-sm-flex flex" action="https://demo.frontted.com/flowdash/120/index.html">
-                            <button class="btn" type="submit"><i class="material-icons">search</i></button>
+                            <button class="btn" type="submit"><i class="material-icons">procurar</i></button>
                             <input type="text" class="form-control" placeholder="Search">
                         </form>
 
@@ -285,7 +285,6 @@
                                 </ul>
                             </li>
 
-
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#pages_menu">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
@@ -399,6 +398,22 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#historico">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Histórico</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="historico">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('historico')}}">
+                                            <span class="sidebar-menu-text">Lista do Histórico</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
                         </ul>
                         <div class="sidebar-heading">Perfil</div>
 
@@ -420,7 +435,7 @@
                                     </div>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{url('/')}}"><i class="material-icons" style="width: 15px; margin-right: 15px;">dvr</i>Início</a>
-                                    <a class="dropdown-item" href="{{url('#')}}"><i class="material-icons" style="width: 10px; margin-right: 20px;">account_circle</i>Meu Perfil</a>
+                                    <a class="dropdown-item" href="{{url('perfil')}}"><i class="material-icons" style="width: 10px; margin-right: 20px;">account_circle</i>Meu Perfil</a>
                                     <a class="dropdown-item" href="{{url('#')}}"><i class="material-icons" style="width: 15px; margin-right: 15px;">edit</i>Alterar Conta</a>
                                     <div class="dropdown-divider"></div>
                                         <form method="POST" action="{{ route('logout') }}">
