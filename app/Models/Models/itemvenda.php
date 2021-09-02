@@ -16,7 +16,7 @@ class itemvenda extends Model
     protected $primaryKey = 'id';
 
     protected $table = 'itemvenda';
-    protected $fillable = ['venda_id','produto_id','quantidade'];
+    protected $fillable = ['venda_id','produto_id','quantidade','pagamento_id'];
 
     public function vendas()
     {
