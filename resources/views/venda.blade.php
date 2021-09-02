@@ -30,7 +30,7 @@
                     <button class="btn btn-primary" type="submit">Iniciar</button>
                 </form>
                 @endif
-                <a href="{{url('itemvenda/create')}}" class="btn btn-success ml-3">Adicionar</a>
+                <a href="{{url('categoriaproduto')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
 
@@ -85,16 +85,8 @@
             @if(isset($venda->users_id) && !isset($venda->valor_total))
             <form action="{{url('item')}}" method="post">
                 @csrf
-                <input type="text" class="form-control" name="users_id" value="{{ Auth::user()->id  }}" placeholder="12" required="">
-                <input type="text" class="form-control" name="valor_total" value="{{$total}}" placeholder="12" required="">
-                <div class="col-md-6">
-                    <label for="validationSample01">Pagamento</label>
-                    <select name="pagamento_id" id="pagamento_id" class="form-control">
-                        @foreach($pagamento as $p)
-                        <option value="{{$p->id}}">{{$p->nome}}</option>
-                        @endforeach
-                    </select>
-                </div>
+                <input type="text" class="form-control" name="users_id" value="{{ Auth::user()->id  }}" placeholder="12" required="" hidden>
+                <input type="text" class="form-control" name="valor_total" value="{{$total}}" placeholder="12" required="" hidden>
                 <button class="btn btn-primary" type="submit" style="float: right;">Finalizar</button>
             </form>
             @endif
