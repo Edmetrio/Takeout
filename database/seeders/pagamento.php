@@ -29,5 +29,11 @@ class pagamento extends Seeder
             'id' => '5b04868d-5dcf-400c-aee8-3b17693de11f',
             'nome' => 'on',
         ]);
+        
+        //Permissão para admin
+        /* php artisan permission:create-permission admin */
+
+        //Permissão para user
+        /* php artisan permission:create-permission user */
     }
 }
