@@ -52,13 +52,13 @@ class ItemVendaController extends Controller
         $item = itemvenda::where('venda_id', $venda->id)->get();
         $historico = Historico::create([
             'users_id' => $request->users_id,
-            'pagamento_id' => $request->pagamento_id,
             'valor_total' => $request->valor_total,
         ]);
         foreach ($item as $i) {
             Itemhistorico::create([
                 'historico_id' => $historico->id,
                 'produto_id' => $i->produto_id,
+                'pagamento_id' => $i->pagamento_id,
                 'quantidade' => $i->quantidade,
             ]);
         }
@@ -73,6 +73,7 @@ class ItemVendaController extends Controller
         $request->validate([
             'venda_id' => 'required',
             'produto_id' => 'required',
+            'pagamento_id' => 'required',
             'quantidade' => 'required|numeric',
         ]);
 
