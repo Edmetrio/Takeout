@@ -16,7 +16,7 @@ class Venda extends Model
     protected $primaryKey = 'id';
 
     protected $table = 'venda';
-    protected $fillable = ['users_id','pagamento_id','valor_total'];
+    protected $fillable = ['users_id','valor_total'];
 
     public function itemvendas()
     {
