@@ -11,11 +11,11 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                            <li class="breadcrumb-item">UI Histórico</li>
-                            <li class="breadcrumb-item active">Lista do Histórico</li>
+                            <li class="breadcrumb-item">UI Perfil</li>
+                            <li class="breadcrumb-item active">Meu Perfil</li>
                         </ol>
                     </nav>
-                    <h1 class="m-0">Lista do Histórico</h1>
+                    <h1 class="m-0">Meu Perfil</h1>
                 </div>
                 @if(isset($user->perfils->id))
                 <a href="{{url("perfil/$user->id/edit")}}" class="btn btn-primary ml-3">Alterar</a>
@@ -36,6 +36,7 @@
                 <div class="row no-gutters">
 
                     <div class="container-fluid page__container">
+                        @if(isset($user->perfils->foto))
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="avatar avatar-xl">
@@ -80,6 +81,10 @@
                                 </div>
                             </div>
                         </div>
+                        @else
+                        <div class="row">
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
