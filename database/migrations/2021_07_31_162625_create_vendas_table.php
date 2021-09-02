@@ -17,8 +17,6 @@ class CreateVendasTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('users_id');
             $table->foreign('users_id')->references('id')->on('users');
-            $table->uuid('pagamento_id')->nullable();
-            $table->foreign('pagamento_id')->references('id')->on('pagamento');
             $table->decimal('valor_total', 20,2)->nullable();
             $table->timestamps();
         });
