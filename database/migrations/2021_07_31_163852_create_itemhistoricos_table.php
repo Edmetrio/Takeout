@@ -19,6 +19,8 @@ class CreateItemhistoricosTable extends Migration
             $table->foreign('historico_id')->references('id')->on('historico');
             $table->uuid('produto_id');
             $table->foreign('produto_id')->references('id')->on('produto');
+            $table->uuid('pagamento_id');
+            $table->foreign('pagamento_id')->references('id')->on('pagamento');
             $table->decimal('quantidade',20,2);
             $table->timestamps();
         });
