@@ -68,11 +68,6 @@
                             <td><img src="{{asset('assets/images/logo.png')}}"></span></td>
                         </a>
 
-                        <form class="search-form d-none d-sm-flex flex" action="https://demo.frontted.com/flowdash/120/index.html">
-                            <button class="btn" type="submit"><i class="material-icons">procurar</i></button>
-                            <input type="text" class="form-control" placeholder="Search">
-                        </form>
-
                         <ul class="nav navbar-nav ml-auto d-none d-md-flex">
                             <li class="nav-item dropdown">
                                 <a href="#notifications_menu" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
@@ -89,7 +84,7 @@
                                             <div class="dropdown-item d-flex">
                                                 <div class="mr-3">
                                                     <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle">
+                                                        <!-- <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle"> -->
                                                     </div>
                                                 </div>
                                                 <div class="flex">
@@ -128,7 +123,7 @@
                                             <div class="dropdown-item d-flex">
                                                 <div class="mr-3">
                                                     <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle">
+                                                        <!-- <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle"> -->
                                                     </div>
                                                 </div>
                                                 <div class="flex">
@@ -216,7 +211,7 @@
                                     <span class="mr-1 d-flex-inline">
                                         <span class="text-light">{{ Auth::user()->name }}</span>
                                     </span>
-                                    <img src="{{asset('assets/images/avatar/demi.png')}}" class="rounded-circle" width="32" alt="Frontted">
+                                    <!-- <img src="{{asset('assets/images/avatar/demi.png')}}" class="rounded-circle" width="32" alt="Frontted"> -->
                                 </a>
                                 <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-item-text dropdown-item-text--lh">
@@ -226,11 +221,11 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{url('/')}}"><i class="material-icons">dvr</i>
                                         Início</a>
-                                    <a class="dropdown-item" href="profile.html"><i class="material-icons">account_circle</i>Meu Perfil</a>
-                                    <a class="dropdown-item" href="edit-account.html"><i class="material-icons">edit</i>
+                                    <a class="dropdown-item" href="{{url('perfil')}}"><i class="material-icons">account_circle</i>Meu Perfil</a>
+                                    <a class="dropdown-item" href="#"><i class="material-icons">edit</i>
                                         Alterar Conta</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html"><i class="material-icons">exit_to_app</i>
+                                    <a class="dropdown-item" href="#"><i class="material-icons">exit_to_app</i>
                                         Sair</a>
                                 </div>
                             </li>
@@ -406,7 +401,7 @@
                         <div class="d-flex align-items-center sidebar-p-a border-bottom sidebar-account">
                             <a href="profile.html" class="flex d-flex align-items-center text-underline-0 text-body">
                                 <span class="avatar avatar-sm mr-2">
-                                    <img src="{{asset('assets/images/avatar/demi.png')}}" alt="avatar" class="avatar-img rounded-circle">
+                                    <!-- <img src="{{asset('assets/images/avatar/demi.png')}}" alt="avatar" class="avatar-img rounded-circle"> -->
                                 </span>
                                 <span class="flex d-flex flex-column" style="font-size: 12px;">
                                     <strong>{{ Auth::user()->name }}</strong>
