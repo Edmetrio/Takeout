@@ -16,7 +16,7 @@ class Itemhistorico extends Model
     protected $primaryKey = 'id';
 
     protected $table = 'itemhistorico';
-    protected $fillable = ['historico_id','produto_id','quantidade'];
+    protected $fillable = ['historico_id','produto_id','quantidade','pagamento_id'];
 
     public function produtos()
     {
