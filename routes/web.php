@@ -64,4 +64,6 @@ Route::resource('historico', HistoricoController::class);
 
 Route::resource('perfil', PerfilController::class);
 
+Route::view('categoriaproduto', 'livewire.template');
+
 require __DIR__.'/auth.php';
