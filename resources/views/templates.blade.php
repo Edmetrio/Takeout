@@ -312,11 +312,11 @@
                                             <span class="sidebar-menu-text">Entrada de Estoque</span>
                                         </a>
                                     </li>
-                                    <li class="sidebar-menu-item">
+                                    <!-- <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="{{url('artigo')}}">
                                             <span class="sidebar-menu-text">lista do artigo</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
 
