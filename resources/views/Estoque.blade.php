@@ -49,7 +49,6 @@
                                         <th style="width: 120px;">Nome do Artigo</th>
                                         <th style="width: 37px;">quantidade</th>
                                         <th style="width: 120px;">preco de Compra</th>
-                                        <th style="width: 120px;">Utilizador</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="staff02">
@@ -59,7 +58,6 @@
                                         <td><span class="js-lists-values-employee-name">{{$e->artigos->nome}}</span></td>
                                         <td><span class="js-lists-values-employee-name">{{$e->quantidade}}</span></td>
                                         <td><span class="js-lists-values-employee-name">{{$e->preco_compra}}</span></td>
-                                        <td><span class="js-lists-values-employee-name">{{$e->users->name}}</span></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
