@@ -5,13 +5,13 @@
 <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
     <div class="mdk-drawer-layout__content page">
 
-    <div class="container-fluid page__heading-container">
+        <div class="container-fluid page__heading-container">
             <div class="page__heading d-flex align-items-center">
                 <div class="flex">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                        <li class="breadcrumb-item">UI Histórico</li>
+                            <li class="breadcrumb-item">UI Histórico</li>
                             <li class="breadcrumb-item active">Lista do Histórico</li>
                         </ol>
                     </nav>
@@ -43,30 +43,46 @@
                                 <button class="btn" type="button"><i class="material-icons">search</i></button>
                             </div>
 
+                            <form method="POST" action="{{url('historico')}}">
+                                @csrf
+                                <div class="col-md-4">
+                                    <label for="validationSample01">Data Início</label>
+                                    <input type="date" class="form-control" name="inicio" placeholder="12" required="">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="validationSample01">Data Início</label>
+                                    <input type="date" class="form-control" name="fim" placeholder="12" required="">
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-info ml-4">Pesquisar</button>
+                                </div>
+
+
+                            </form>
+
                             <table class="table mb-0 thead-border-top-0">
                                 <thead>
                                     <tr>
-                                        <th style="width: 300px;">categoria/produto</th>
-                                        <th style="width: 100px;">Produto</th>
+                                        <th style="width: 50px;">categoria/produto</th>
+                                        <th style="width: 230px;">Produto</th>
                                         <th style="width: 30px;">Quantidade</th>
                                         <th style="width: 10px;">Acções</th>
                                     </tr>
                                 </thead>
-                                <tbody class="list" id="staff02">   
-                                    <p></p>
+                                <tbody class="list" id="staff02">
                                     @foreach($categoria as $c)
                                     <tr>
                                         <td>
-                                            <strong><span class="js-lists-values-employee-name">{{$c->nome}}</span></strong>
-                                            @foreach($c->produtos as $p)
-                                            <tr>
-                                            <td><span class="js-lists-values-employee-name">{{$p->nome}}</span></td>
-                                            @foreach($p->itemhistorico as $v)
-                                            <td><span class="badge badge-warning"></span>{{$v->quantidade}}</td>
-                                            @endforeach
-                                            <td class="text-right"><a href="" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
-                                            </tr>
-                                            @endforeach
+                                        <strong><span class="js-lists-values-employee-name">{{$c->nome}}</span></strong>
+                                        @foreach($c->produtos as $p)
+                                        <td><span class="js-lists-values-employee-name">{{$p->nome}}</span><br></td>
+                                        <td>
+                                        @foreach($p->itemhistorico as $i)
+                                        <span class="js-lists-values-employee-name">{{$i->quantidade}}</span><br/>
+                                        @endforeach
+                                        </td>
+                                        @endforeach
                                         </td>
                                     </tr>
                                     @endforeach
