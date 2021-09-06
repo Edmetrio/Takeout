@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Models\Artigo;
 use App\Models\Models\Processo;
 use App\Models\Models\Produto;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProcessoController extends Controller
@@ -17,6 +18,8 @@ class ProcessoController extends Controller
     public function index()
     {
         $processo = Processo::with(['artigos','produtos'])->get();
+        /* $processo = Produto::with(['proproart','artigos'])->get(); */
+        /* dd($processo); */
         return view('processo', compact('processo'));
     }
 
