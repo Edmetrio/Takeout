@@ -44,4 +44,9 @@ class Produto extends Model
         return $this->hasMany(Itemhistorico::class, 'produto_id');
     }
 
+    public function proproart()
+    {
+        return $this->hasOneThrough(Artigo::class, Processo::class);
+    }
+
 }
