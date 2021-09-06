@@ -15,6 +15,7 @@ use App\Http\Controllers\TipoController;
 use App\Http\Controllers\VendaController;
 use App\Models\Models\Artigo;
 use App\Models\Models\Contapagar;
+use App\Models\Models\Historico;
 use App\Models\Models\Tipo;
 use Illuminate\Support\Facades\Route;
 
@@ -32,38 +33,44 @@ use Illuminate\Support\Facades\Route;
 /* Route::get('/', function () {
     return view('welcome');
 }); */
+
 Route::resource('/', InicioController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('categoria', CategoriaController::class);
 
-Route::resource('produto', ProdutoController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('categoria', CategoriaController::class);
 
-Route::resource('artigo', ArtigoController::class);
+    Route::resource('produto', ProdutoController::class);
 
-Route::resource('estoque', EstoqueController::class);
+    Route::resource('artigo', ArtigoController::class);
 
-Route::resource('aumenta', EntradaEstoqueController::class);
+    Route::resource('estoque', EstoqueController::class);
 
-Route::resource('processo', ProcessoController::class);
+    Route::resource('aumenta', EntradaEstoqueController::class);
 
-Route::resource('tipo', TipoController::class);
+    Route::resource('processo', ProcessoController::class);
 
-Route::resource('contapagar', ContapagarController::class);
+    Route::resource('tipo', TipoController::class);
 
-Route::resource('venda', VendaController::class);
-Route::post('iniciar', [VendaController::class, 'store']);
+    Route::resource('contapagar', ContapagarController::class);
 
-Route::resource('itemvenda', ItemVendaController::class);
-Route::post('item', [ItemVendaController::class,'item']);
+    Route::resource('venda', VendaController::class);
+    Route::post('iniciar', [VendaController::class, 'store']);
 
-Route::resource('historico', HistoricoController::class);
+    Route::resource('itemvenda', ItemVendaController::class);
+    Route::post('item', [ItemVendaController::class, 'item']);
 
-Route::resource('perfil', PerfilController::class);
+    Route::resource('historico', HistoricoController::class);
+    /* Route::get('procurar', [HistoricoController::class, 'procurar']); */
 
-Route::view('categoriaproduto', 'livewire.template');
+    Route::resource('perfil', PerfilController::class);
 
-require __DIR__.'/auth.php';
+    Route::view('categoriaproduto', 'livewire.template');
+});
+
+
+require __DIR__ . '/auth.php';
