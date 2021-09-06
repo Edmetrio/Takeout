@@ -26,7 +26,6 @@ class HistoricoController extends Controller
             }
             $subtotal = $total;
         }
-        /* dd($categoria); */
         return view('historico', compact('categoria','subtotal'));
     }
 
@@ -48,7 +47,9 @@ class HistoricoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $pesquisa = Categoria::with(['itemhistoricos','produtos'])->where('itemhistorico:quantidade', '>=', $request->inicio)->where('itemhistorico:quantidade', '<=', $request->fim)->get();
+        dd($pesquisa);
     }
 
     /**
