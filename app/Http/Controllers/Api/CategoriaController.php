@@ -34,9 +34,26 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Categoria $categoria)
     {
-        //
+        $request->validate([
+            'nome' => 'required|unique:categoria',
+            'icon' =>  'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $input = $request->all();
+        $icon = time() . '.' . $request->icon->extension();
+        $destino =  'assets/images/categorias';
+        $request->icon->move($destino, $icon);
+        $input['icon'] = "$icon";
+
+        $categoria = Categoria::create($input);
+        if($categoria)
+        {
+            return ["result"=>"Categoria adicionada"];
+        } else {
+            return ["result"=>"Erro ao Adiciconar"];
+        }
     }
 
     /**
