@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\ArtigoController;
 use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\ProdutoController;
+use App\Models\Models\Artigo;
 use App\Models\Models\Categoria;
 use App\Models\Models\Produto;
 use Illuminate\Http\Request;
@@ -22,6 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('categoria', CategoriaController::class);
+Route::apiResource('categoria', CategoriaController::class);
 
-Route::resource('produto', ProdutoController::class);
+Route::apiResource('produto', ProdutoController::class);
+
+Route::apiResource('artigo', ArtigoController::class);
