@@ -81,123 +81,7 @@
                                     <div class="navbar-notifications-menu__content" data-perfect-scrollbar>
                                         <div class="py-2">
 
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <!-- <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle"> -->
-                                                    </div>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="#">A.Demian</a> left a comment on <a href="#">FlowDash</a><br>
-                                                    <small class="text-muted">1 minute ago</small>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                            <span class="avatar-title bg-purple rounded-circle"><i class="material-icons icon-16pt">person_add</i></span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    New user <a href="#">Peter Parker</a> signed up.<br>
-                                                    <small class="text-muted">1 hour ago</small>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                            <span class="avatar-title rounded-circle">JD</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
-                                                    <div>Hey, how are you? What about our next meeting</div>
-                                                    <small class="text-muted">2 minutes ago</small>
-                                                </div>
-                                            </div>
-
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <!-- <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle"> -->
-                                                    </div>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="#">A.Demian</a> left a comment on <a href="#">FlowDash</a><br>
-                                                    <small class="text-muted">1 minute ago</small>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                            <span class="avatar-title bg-purple rounded-circle"><i class="material-icons icon-16pt">person_add</i></span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    New user <a href="#">Peter Parker</a> signed up.<br>
-                                                    <small class="text-muted">1 hour ago</small>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                            <span class="avatar-title rounded-circle">JD</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
-                                                    <div>Hey, how are you? What about our next meeting</div>
-                                                    <small class="text-muted">2 minutes ago</small>
-                                                </div>
-                                            </div>
-
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="{{asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg')}}" alt="Avatar" class="avatar-img rounded-circle">
-                                                    </div>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="#">A.Demian</a> left a comment on <a href="#">FlowDash</a><br>
-                                                    <small class="text-muted">1 minute ago</small>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                            <span class="avatar-title bg-purple rounded-circle"><i class="material-icons icon-16pt">person_add</i></span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    New user <a href="#">Peter Parker</a> signed up.<br>
-                                                    <small class="text-muted">1 hour ago</small>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                            <span class="avatar-title rounded-circle">JD</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
-                                                    <div>Hey, how are you? What about our next meeting</div>
-                                                    <small class="text-muted">2 minutes ago</small>
-                                                </div>
-                                            </div>
-
+                                            
                                         </div>
                                     </div>
                                     <a href="javascript:void(0);" class="dropdown-item text-center navbar-notifications-menu__footer">View All</a>
@@ -351,21 +235,6 @@
                             </li>
 
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" data-toggle="collapse" href="#tipo">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
-                                    <span class="sidebar-menu-text">Tipo</span>
-                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                </a>
-                                <ul class="sidebar-submenu collapse" id="tipo">
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('tipo')}}">
-                                            <span class="sidebar-menu-text">Listar o Tipo</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#despesa">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
                                     <span class="sidebar-menu-text">Despesas</span>
@@ -375,6 +244,11 @@
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="{{url('contapagar')}}">
                                             <span class="sidebar-menu-text">Lista das Despesas</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('tipo')}}">
+                                            <span class="sidebar-menu-text">Listar nome da despesa</span>
                                         </a>
                                     </li>
                                 </ul>
