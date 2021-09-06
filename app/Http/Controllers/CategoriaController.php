@@ -36,14 +36,14 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'nome' => 'required|unique:categoria',
             'icon' =>  'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $input = $request->all();
-        $icon = time().'.'.$request->icon->extension();
+        $icon = time() . '.' . $request->icon->extension();
         $destino =  'assets/images/categorias';
         $request->icon->move($destino, $icon);
         $input['icon'] = "$icon";
@@ -88,18 +88,28 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, Categoria $categoria, $id)
     {
         /* return $request->all(); */
         $request->validate([
             'nome' => 'required|unique:categoria',
-            'icon' => 'required',
-            'estado' => 'required',
+            'icon' =>  'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $categoria->update($request->all());
-        $request->session()->flash('status', 'Categoria Actualizado com Sucesso!');
-                    return redirect('categoria');  
+        $input = $request->all();
+        $icon = time() . '.' . $request->icon->extension();
+        $destino =  'assets/images/categorias';
+        $request->icon->move($destino, $icon);
+        $input['icon'] = "$icon";
+
+        $catego = Categoria::where(['id' => $id])->update(['nome' => $request->nome, 'icon' => $icon, 'estado' => $request->estado]);
+        /* dd($catego); */
+        if ($catego) {
+            $request->session()->flash('status', 'Categoria Actualizado com Sucesso!');
+            return redirect('categoria');
+        }
+        $request->session()->flash('status', 'Erro ao Actualizar!');
+        return redirect('categoria');
     }
 
     /**
