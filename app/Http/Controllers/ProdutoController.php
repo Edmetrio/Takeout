@@ -100,14 +100,15 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto)
     {
 
-        $request->validate([
+        /* $request->validate([
             'categoria_id' => 'required',
             'nome' => 'required|unique:produto',
             'icon' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'preco' => 'required|numeric',
-        ]);
+        ]); */
 
         $input = $request->all();
+
         $icon = time().'.'.$request->icon->extension();
         $destino =  'assets/images/produtos';
         $request->icon->move($destino, $icon);
