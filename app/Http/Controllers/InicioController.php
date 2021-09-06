@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\Estoque;
 use Illuminate\Http\Request;
 
 class InicioController extends Controller
@@ -13,7 +14,8 @@ class InicioController extends Controller
      */
     public function index()
     {
-        return view('inicio');
+        $estoque = Estoque::where('quantidade', '<', 20)->with('artigos')->get();
+        return view('start', compact('estoque'));
     }
 
     /**
