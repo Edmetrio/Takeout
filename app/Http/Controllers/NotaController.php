@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Models\itemvenda;
-use App\Models\Models\Pagamento;
-use App\Models\Models\Venda;
+use App\Models\Models\Nota;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 
-class VendaController extends Controller
+class NotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,24 +16,13 @@ class VendaController extends Controller
      */
     public function index()
     {
-        $venda = Venda::latest()->first();
-        $pagamento = Pagamento::latest()->get();
-        if (isset($venda)) {
-            $item = itemvenda::where('venda_id', $venda->id)->with(['produtos'])->latest()->get();
-            $t = 0;
-            foreach ($item as $i) {
-                $i->subtotal = $i->quantidade * $i->produtos->preco;
-                $t += $i->subtotal;
-            }
-            $total = $t;
-            return view('venda', compact('venda', 'item', 'total', 'pagamento'));
-        } else {
-            $item = itemvenda::with(['produtos'])->latest()->get();
-            $total = 0.0;
-            return view('venda', compact('venda', 'item', 'total', 'pagamento'));
-        }
-    }
+        $nota = Nota::with(['users'])->orderBy('id', 'desc')->get();
+        /* $nota = Nota::with(['users'])->orderBy('id', 'desc')->first(); */
 
+        /* dd(Carbon::now()->format('d-m-y')); */
+        /* dd($nota->created_at->format('d-m-y')); */
+        return view('nota', compact('nota'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -43,7 +31,7 @@ class VendaController extends Controller
      */
     public function create()
     {
-        return view('venda');
+        return view('createNota');
     }
 
     /**
@@ -54,15 +42,13 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        $venda = Venda::create([
-            'users_id' => $request->users_id,
-        ]);
-        if ($venda) {
-            $request->session()->flash('status', 'Venda Iniciada!');
-            return redirect('venda');
+        $nota = Nota::create($request->all());
+        if ($nota) {
+            $request->session()->flash('status', 'Nota adicionada!');
+            return redirect('nota');
         }
-        $request->session()->flash('status', 'Erro na Venda!');
-        return redirect('venda');
+        $request->session()->flash('status', 'Erro ao Adicionar!');
+        return redirect('nota');
     }
 
     /**
@@ -73,7 +59,7 @@ class VendaController extends Controller
      */
     public function show($id)
     {
-        //
+        return Nota::find($id);
     }
 
     /**
@@ -84,7 +70,8 @@ class VendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nota = Nota::where(['id' => $id])->with(['users'])->first();
+        return view('createNota', compact('nota'));
     }
 
     /**
@@ -96,7 +83,13 @@ class VendaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nota = Nota::where('id', $id)->update($request->all());
+        if ($nota) {
+            $request->session()->flash('status', 'Nota actuaizada!');
+            return redirect('nota');
+        }
+        $request->session()->flash('status', 'Erro ao actualizar!');
+        return redirect('nota');
     }
 
     /**
