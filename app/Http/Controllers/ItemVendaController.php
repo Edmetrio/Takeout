@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Models\Artigo;
+use App\Models\Models\Estado;
 use App\Models\Models\Estoque;
 use App\Models\Models\Historico;
 use App\Models\Models\Itemhistorico;
@@ -36,15 +37,6 @@ class ItemVendaController extends Controller
         return view('createitemvenda', compact('produto', 'venda'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function itemhistorico($i)
-    {
-    }
 
     public function item(Request $request)
     {
@@ -116,9 +108,23 @@ class ItemVendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+        $itemvenda = itemvenda::where(['id' => $id])->first();
+        $item = Processo::where('produto_id', $itemvenda->produto_id)->with(['artigos'])->get();
+        foreach ($item as $a) {
+            $estoque = Estoque::where(['artigo_id' => $a->artigos->id])->with(['artigos'])->first();
+            $aum = $a->quantidade * $itemvenda->quantidade;
+            $aumento = $aum + $estoque->quantidade;
+            Estoque::where(['artigo_id' => $a->artigos->id])->update(['quantidade' => $aumento]);
+        }
+        $excluir = itemvenda::where(['id' => $id])->delete();
+        if($excluir){
+        $request->session()->flash('status', 'Item excluído com Sucesso!');
+        return redirect('venda');
+        }
+        $request->session()->flash('status', 'Erro ao Excluir item!');
+        return redirect('venda');
     }
 
     /**
