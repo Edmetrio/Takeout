@@ -15,7 +15,7 @@
                             <li class="breadcrumb-item active">Venda</li>
                         </ol>
                     </nav>
-                    <h1 class="m-0">Lista dos Produto</h1>
+                    <h1 class="m-0">Lista das Vendas</h1>
                 </div>
                 @if(!isset($venda->users_id) && !isset($venda->valor_total))
                 <form action="{{url('iniciar')}}" method="post">
@@ -30,6 +30,8 @@
                     <button class="btn btn-primary" type="submit">Iniciar</button>
                 </form>
                 @endif
+                <h3 class="m-0" style="font-weight: bold; color: cadetblue;">{{$venda->created_at->format('d-m-y')}}</h3>
+                <!-- <button class="btn btn-primary" type="submit">{{$venda->created_at->format('d-m-y')}}</button> -->
                 <a href="{{url('categoriaproduto')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
@@ -52,16 +54,17 @@
 
                             <div class="search-form search-form--light m-3">
                                 <input type="text" class="form-control search" placeholder="Search">
-                                <button class="btn" type="button"><i class="material-icons">search</i></button>
+                                <button class="btn" type="button"><i class="material-icons">Procurar</i></button>
                             </div>
 
                             <table class="table mb-0 thead-border-top-0">
                                 <thead>
                                     <tr>
-                                        <th style="width: 200px;">Nome do Produto</th>
-                                        <th style="width: 37px;">Quantidade</th>
+                                        <th style="width: 150px;">Nome do Produto</th>
+                                        <th style="width: 20px;">Quantidade</th>
                                         <th style="width: 20px;">Preço</th>
-                                        <th style="width: 24px;">Subtotal</th>
+                                        <th style="width: 20px;">Subtotal</th>
+                                        <th style="width: 5px;">Cancelar</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="staff02">
@@ -73,6 +76,7 @@
                                         <td><span class="js-lists-values-employee-name">{{$i->quantidade}}</span></td>
                                         <td><span class="js-lists-values-employee-name">{{$i->produtos->preco}}</span></td>
                                         <td><span>{{$i->subtotal}}</span></td>
+                                        <td><a href="{{url("itemvenda/$i->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">delete</i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
