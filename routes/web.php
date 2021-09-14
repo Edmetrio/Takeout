@@ -8,9 +8,11 @@ use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ItemVendaController;
+use App\Http\Controllers\NotaController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ProcessoController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\QuebraController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\VendaController;
 use App\Models\Models\Artigo;
@@ -68,6 +70,10 @@ Route::middleware(['auth'])->group(function () {
     /* Route::get('procurar', [HistoricoController::class, 'procurar']); */
 
     Route::resource('perfil', PerfilController::class);
+
+    Route::resource('quebra', QuebraController::class);
+
+    Route::resource('nota', NotaController::class);
 
     Route::view('categoriaproduto', 'livewire.template');
 });
