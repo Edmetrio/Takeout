@@ -18,7 +18,7 @@
                     <h1 class="m-0">Meu Sistema - TakeOut</h1>
                 </div>
                 <a href="{{ route('login')}}" class="btn btn-primary ml-3">Entrar</i></a>
-                <a href="{{ route('register')}}" class="btn btn-info ml-3">Registrar</i></a>
+                <!-- <a href="{{ route('register')}}" class="btn btn-info ml-3">Registrar</i></a> -->
             </div>
         </div>
         @if(session('status'))
