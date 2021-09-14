@@ -29,7 +29,6 @@
     <link type="text/css" href="{{asset('assets/css/vendor-fontawesome-free.rtl.css')}}" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133433427-1"></script -->>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -148,7 +147,7 @@
 
                                 </ul>
                             </li>
-
+                            @can('admin')
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
@@ -178,6 +177,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @endcan
 
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
@@ -196,14 +196,15 @@
                                             <span class="sidebar-menu-text">Entrada de Estoque</span>
                                         </a>
                                     </li>
-                                    <!-- <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('artigo')}}">
-                                            <span class="sidebar-menu-text">lista do artigo</span>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('quebra')}}">
+                                            <span class="sidebar-menu-text">Lista de Quebras</span>
                                         </a>
-                                    </li> -->
+                                    </li>
                                 </ul>
                             </li>
 
+                            @can('admin')
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#processo">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
@@ -213,11 +214,12 @@
                                 <ul class="sidebar-submenu collapse" id="processo">
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="{{url('processo')}}">
-                                            <span class="sidebar-menu-text">Listar o Porcesso</span>
+                                            <span class="sidebar-menu-text">Listar o Processo</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
+                            @endcan
 
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#venda">
@@ -253,6 +255,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @can('admin')
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#historico">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
@@ -267,7 +270,23 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            @endcan
+                            @can('admin')
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#nota">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Notas</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="nota">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('nota')}}">
+                                            <span class="sidebar-menu-text">Lista das notas</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endcan
 
                         </ul>
                         <div class="sidebar-heading">Perfil</div>
