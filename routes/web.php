@@ -67,13 +67,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('item', [ItemVendaController::class, 'item']);
 
     Route::resource('historico', HistoricoController::class);
-    /* Route::get('procurar', [HistoricoController::class, 'procurar']); */
+    Route::get('pesquisaH', [HistoricoController::class, 'pesquisaH']);
 
     Route::resource('perfil', PerfilController::class);
 
     Route::resource('quebra', QuebraController::class);
 
     Route::resource('nota', NotaController::class);
+    Route::post('pesquisar', [NotaController::class, 'pesquisar']);
 
     Route::view('categoriaproduto', 'livewire.template');
 });
