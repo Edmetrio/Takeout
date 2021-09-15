@@ -46,10 +46,6 @@
                                             <label for="validationSample01">Nome</label>
                                             <input type="text" class="form-control" name="nome" value="{{$categoria->nome ?? ''}}" placeholder="Nome" required="">
                                         </div>
-                                        <div class="col-12 col-md-6 mb-3">
-                                            <label for="validationSample02">Icon</label>
-                                            <input type="file" class="form-control" name="icon" value="{{$categoria->icon ?? ''}}" required="">
-                                        </div>
                                     </div>
                                     <div class="col-lg-8 card-form__body card-body d-flex align-items-center">
                                         <div class="flex">
