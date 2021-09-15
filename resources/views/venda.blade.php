@@ -29,9 +29,10 @@
                     <input type="text" class="form-control" name="users_id" hidden value="{{ Auth::user()->id  }}" placeholder="12" required="">
                     <button class="btn btn-primary" type="submit">Iniciar</button>
                 </form>
-                @endif
+                @else
                 <h3 class="m-0" style="font-weight: bold; color: cadetblue;">{{$venda->created_at->format('d-m-y')}}</h3>
-                <!-- <button class="btn btn-primary" type="submit">{{$venda->created_at->format('d-m-y')}}</button> -->
+                @endif
+
                 <a href="{{url('categoriaproduto')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
@@ -54,7 +55,7 @@
 
                             <div class="search-form search-form--light m-3">
                                 <input type="text" class="form-control search" placeholder="Search">
-                                <button class="btn" type="button"><i class="material-icons">Procurar</i></button>
+                                <button class="btn" type="button"><i class="material-icons">search</i></button>
                             </div>
 
                             <table class="table mb-0 thead-border-top-0">
