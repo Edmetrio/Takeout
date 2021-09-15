@@ -44,17 +44,16 @@ class ProdutoController extends Controller
         $request->validate([
             'categoria_id' => 'required',
             'nome' => 'required|unique:produto',
-            'icon' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'preco' => 'required|numeric',
         ]);
 
-        $input = $request->all();
+        /* $input = $request->all();
         $icon = time().'.'.$request->icon->extension();
         $destino =  'assets/images/produtos';
         $request->icon->move($destino, $icon);
-        $input['icon'] = "$icon";
+        $input['icon'] = "$icon"; */
         
-        $produto = Produto::create($input);
+        $produto = Produto::create($request->all());
         if($produto)
         {
             $request->session()->flash('status', 'Produto adicionado com Sucesso!');
@@ -84,9 +83,7 @@ class ProdutoController extends Controller
     public function edit($id)
     {
         $produto = Produto::with('categorias')->find($id);
-        /* dd($produto); */
         $categoria = Categoria::all();
-        /* dd($categoria); */
         return view('createProduto', compact('produto', 'categoria'));
     }
 
@@ -107,14 +104,14 @@ class ProdutoController extends Controller
             'preco' => 'required|numeric',
         ]); */
 
-        $input = $request->all();
+        /* $input = $request->all();
 
         $icon = time().'.'.$request->icon->extension();
         $destino =  'assets/images/produtos';
         $request->icon->move($destino, $icon);
-        $input['icon'] = "$icon";
+        $input['icon'] = "$icon"; */
 
-        $cat = $produto->update($input);
+        $cat = $produto->update($request->all());
         if ($cat) {
             $request->session()->flash('status', 'Produto Actualizado com Sucesso!');
             return redirect('produto');
