@@ -16,14 +16,28 @@ class NotaController extends Controller
      */
     public function index()
     {
-        $nota = Nota::with(['users'])->orderBy('id', 'desc')->get();
-        /* $nota = Nota::with(['users'])->orderBy('id', 'desc')->first(); */
+        /* $nota = Nota::with(['users'])->orderBy('id', 'desc')->get();
+        $nota = Nota::with(['users'])->orderBy('id', 'desc')
+        ->whereRaw("DATE(created_at) = '" . date('Y-m-d'). "'")
+        ->get(); */
 
-        /* dd(Carbon::now()->format('d-m-y')); */
-        /* dd($nota->created_at->format('d-m-y')); */
+        $nota = Nota::with(['users'])->orderBy('id', 'desc')
+        /* ->whereMonth('created_at', now()->month) */
+        ->whereDay('created_at', now()->day)
+        ->get();
+
         return view('nota', compact('nota'));
     }
 
+    public function pesquisar(Request $request)
+    {
+        $nota = Nota::with(['users'])->orderBy('id', 'desc')
+        ->whereDate('created_at', '>=', $request->inicio)
+        ->whereDate('created_at', '<=', $request->fim)
+        ->get();
+
+        return view('nota', compact('nota'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -70,7 +84,7 @@ class NotaController extends Controller
      */
     public function edit($id)
     {
-        $nota = Nota::where(['id' => $id])->with(['users'])->first();
+        $nota = Nota::where(['id' => $id])->first();
         return view('createNota', compact('nota'));
     }
 
@@ -83,7 +97,7 @@ class NotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nota = Nota::where('id', $id)->update($request->all());
+        $nota = Nota::where(['id' => $id])->update($request->all());
         if ($nota) {
             $request->session()->flash('status', 'Nota actuaizada!');
             return redirect('nota');
