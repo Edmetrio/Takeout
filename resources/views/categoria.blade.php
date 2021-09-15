@@ -48,9 +48,6 @@
                                     <tr>
 
                                         <th style="width: 120px;">Nome da Categoria</th>
-
-                                        <th style="width: 37px;">Estado</th>
-                                        <th style="width: 120px;">icon</th>
                                         <th style="width: 24px;">Acções</th>
                                     </tr>
                                 </thead>
@@ -61,8 +58,6 @@
                                         <td>
                                             <span class="js-lists-values-employee-name">{{$c->nome}}</span>
                                         </td>
-                                        <td><span class="badge badge-warning">{{$c->estado}}</span></td>
-                                        <td><img src="assets/images/categorias/{{$c->icon}}" style="width: 40px; height: 40px;"></td>
                                         <td class="text-right"><a href="{{url("categoria/$c->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a>
                                         <a href="{{url("categoria/$c->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">delete</i></a></td>
                                     </tr>
