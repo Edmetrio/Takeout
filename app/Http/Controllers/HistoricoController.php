@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Models\Categoria;
 use App\Models\Models\Historico;
+use App\Models\Models\Itemhistorico;
 use App\Models\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -16,15 +17,20 @@ class HistoricoController extends Controller
      */
     public function index()
     {
-        $categoria = Categoria::with(['itemhistoricos','produtos'])->get();
+        $categoria = Itemhistorico::with(['produtos'])
+        ->whereDay('created_at', now()->day)
+        ->get();
         $total =0.0;
         foreach($categoria as $c)
         {
-            foreach($c->itemhistoricos as $i)
-            {
-            $total += $i->quantidade;
-            }
-            $subtotal = $total;
+            $total += $c->quantidade;
+        }
+        $subtotal = $total;
+
+
+        if(isset($categoria))
+        {
+        return view('historico', compact('categoria'));
         }
         return view('historico', compact('categoria','subtotal'));
     }
@@ -47,9 +53,12 @@ class HistoricoController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $pesquisa = Categoria::with(['itemhistoricos','produtos'])->where('itemhistorico:quantidade', '>=', $request->inicio)->where('itemhistorico:quantidade', '<=', $request->fim)->get();
-        dd($pesquisa);
+        $categoria = Itemhistorico::with(['produtos'])->orderBy('id', 'desc')
+        ->whereDate('created_at', '>=', $request->inicio)
+        ->whereDate('created_at', '<=', $request->fim)
+        ->get();
+
+        return view('historico', compact('categoria'));
     }
 
     /**
