@@ -17,7 +17,6 @@
                     </nav>
                     <h1 class="m-0">Lista do Histórico</h1>
                 </div>
-                <a href="{{url('contapagar/create')}}" class="btn btn-success ml-3">Adicionar</a>
             </div>
         </div>
         @if(session('status'))
@@ -64,25 +63,24 @@
                             <table class="table mb-0 thead-border-top-0">
                                 <thead>
                                     <tr>
-                                        <th style="width: 50px;">categoria/produto</th>
-                                        <th style="width: 230px;">Produto</th>
-                                        <th style="width: 30px;">Quantidade</th>
-                                        <th style="width: 10px;">Acções</th>
+                                        <th style="width: 200px;">Nome do produto</th>
+                                        <th style="width: 100px;">Quantidade</th>
+                                        <th style="width: 30px;">Preco</th>
+                                        <th style="width: 10px;">Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="staff02">
                                     @foreach($categoria as $c)
                                     <tr>
                                         <td>
-                                        <strong><span class="js-lists-values-employee-name">{{$c->nome}}</span></strong>
-                                        @foreach($c->produtos as $p)
-                                        <td><span class="js-lists-values-employee-name">{{$p->nome}}</span><br></td>
+                                        <strong><span class="js-lists-values-employee-name">{{$c->produtos->nome}}</span></strong>
+                                        <td><span class="js-lists-values-employee-name">{{$c->quantidade}}</span><br></td>
                                         <td>
-                                        @foreach($p->itemhistorico as $i)
-                                        <span class="js-lists-values-employee-name">{{$i->quantidade}}</span><br/>
-                                        @endforeach
+                                        <span class="js-lists-values-employee-name">{{$c->produtos->preco}}</span><br/>
                                         </td>
-                                        @endforeach
+                                        <td>
+                                        <span class="js-lists-values-employee-name">{{$c->subtotal}}</span><br/>
+                                        </td>
                                         </td>
                                     </tr>
                                     @endforeach
