@@ -41,10 +41,10 @@
                     </div>
                     <div class="col-lg-8 card-form__body card-body">
                         @if(isset($nota))
-                        <form method="POST" action="{{url("nota/$nota->id")}}">
+                        <form method="post" action="{{url("nota/$nota->id")}}">
                             @method('PUT')
                             @else
-                            <form method="POST" action="{{url('nota')}}">
+                            <form method="post" action="{{url('nota')}}">
                                 @endif
                                 @csrf
                                 <div class="was-validated">
