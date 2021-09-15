@@ -5,13 +5,13 @@
 <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
     <div class="mdk-drawer-layout__content page">
 
-    <div class="container-fluid page__heading-container">
+        <div class="container-fluid page__heading-container">
             <div class="page__heading d-flex align-items-center">
                 <div class="flex">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
-                        <li class="breadcrumb-item">UI Notas</li>
+                            <li class="breadcrumb-item">UI Notas</li>
                             <li class="breadcrumb-item active">Lista das Notas</li>
                         </ol>
                     </nav>
@@ -42,7 +42,22 @@
                                 <input type="text" class="form-control search" placeholder="Procurar">
                                 <button class="btn" type="button"><i class="material-icons">procurar</i></button>
                             </div>
+                            <form method="post" action="{{url('pesquisar')}}">
+                                @csrf
+                                <div class="col-md-4">
+                                    <label for="validationSample01">Data Início</label>
+                                    <input type="date" class="form-control" name="inicio" required="">
+                                </div>
 
+                                <div class="col-md-4">
+                                    <label for="validationSample01">Data Início</label>
+                                    <input type="date" class="form-control" name="fim" required="">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-info ml-4">Pesquisar</button>
+                                </div>
+                            </form>
                             <table class="table mb-0 thead-border-top-0">
                                 <thead>
                                     <tr>
