@@ -39,7 +39,7 @@
                         <div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
 
                             <div class="search-form search-form--light m-3">
-                                <input type="text" class="form-control search" placeholder="Search">
+                                <input type="text" class="form-control search" placeholder="Procurar">
                                 <button class="btn" type="button"><i class="material-icons">search</i></button>
                             </div>
 
@@ -49,7 +49,6 @@
 
                                         <th style="width: 200px;">Nome do Produto</th>
                                         <th style="width: 37px;">Preço</th>
-                                        <th style="width: 20px;">icon</th>
                                         <th style="width: 24px;">Acções</th>
                                     </tr>
                                 </thead>
@@ -63,7 +62,6 @@
                                         <tr>
                                         <td><span class="js-lists-values-employee-name">{{$p->nome}}</span></td>
                                         <td><span class="js-lists-values-employee-name">{{$p->preco}}</span></td>
-                                        <td><img src="assets/images/produtos/{{$p->icon}}" style="width: 40px; height: 40px;"></span></td>
                                         <td class="text-right"><a href="{{url("produto/$p->id/edit")}}" class="btn btn-sm btn-primary"><i class="material-icons">edit</i></a></td>
                                         </tr>
                                         @endforeach
