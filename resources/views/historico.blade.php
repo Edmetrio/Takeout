@@ -44,17 +44,19 @@
 
                             <form method="POST" action="{{url('historico')}}">
                                 @csrf
-                                <div class="col-md-4">
-                                    <label for="validationSample01">Data Início</label>
-                                    <input type="date" class="form-control" name="inicio" placeholder="12" required="">
-                                </div>
+                                <div class="form-row col-lg-9">
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="validationSample01">Data Início</label>
+                                        <input type="date" class="form-control" name="inicio" placeholder="12" required="">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="validationSample01">Data Início</label>
-                                    <input type="date" class="form-control" name="fim" placeholder="12" required="">
-                                </div>
-                                <div class="col-md-4">
-                                    <button class="btn btn-info ml-4">Pesquisar</button>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="validationSample01">Data Início</label>
+                                        <input type="date" class="form-control" name="fim" placeholder="12" required="">
+                                    </div>
+                                    <div class="col-1 col-md-6 mb-3">
+                                        <button class="btn btn-info ml-4">Pesquisar</button>
+                                    </div>
                                 </div>
 
 
@@ -73,13 +75,13 @@
                                     @foreach($categoria as $c)
                                     <tr>
                                         <td>
-                                        <strong><span class="js-lists-values-employee-name">{{$c->produtos->nome}}</span></strong>
+                                            <strong><span class="js-lists-values-employee-name">{{$c->produtos->nome}}</span></strong>
                                         <td><span class="js-lists-values-employee-name">{{$c->quantidade}}</span><br></td>
                                         <td>
-                                        <span class="js-lists-values-employee-name">{{$c->produtos->preco}}</span><br/>
+                                            <span class="js-lists-values-employee-name">{{$c->produtos->preco}}</span><br />
                                         </td>
                                         <td>
-                                        <span class="js-lists-values-employee-name">{{$c->subtotal}}</span><br/>
+                                            <span class="js-lists-values-employee-name">{{$c->subtotal}}</span><br />
                                         </td>
                                         </td>
                                     </tr>
