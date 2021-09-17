@@ -64,7 +64,7 @@
 
                         <!-- Navbar Brand -->
                         <a href="{{url('/')}}">
-                            <td><img src="{{asset('assets/images/logo.png')}}"></span></td>
+                            <td><img src="{{asset('assets/images/logos/logo2.png')}}"></span></td>
                         </a>
 
                         <ul class="nav navbar-nav ml-auto d-none d-md-flex">
@@ -177,7 +177,36 @@
                                     </li>
                                 </ul>
                             </li>
-                            @endcan
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#processo">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Processo</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="processo">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('processo')}}">
+                                            <span class="sidebar-menu-text">Listar o Processo</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#historico">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Histórico</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="historico">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('historico')}}">
+                                            <span class="sidebar-menu-text">Lista do Histórico</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
@@ -203,23 +232,6 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            @can('admin')
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" data-toggle="collapse" href="#processo">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
-                                    <span class="sidebar-menu-text">Processo</span>
-                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                </a>
-                                <ul class="sidebar-submenu collapse" id="processo">
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('processo')}}">
-                                            <span class="sidebar-menu-text">Listar o Processo</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            @endcan
 
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#venda">
@@ -255,23 +267,83 @@
                                     </li>
                                 </ul>
                             </li>
-                            @can('admin')
+
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" data-toggle="collapse" href="#historico">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#nota">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
-                                    <span class="sidebar-menu-text">Histórico</span>
+                                    <span class="sidebar-menu-text">Notas</span>
                                     <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                 </a>
-                                <ul class="sidebar-submenu collapse" id="historico">
+                                <ul class="sidebar-submenu collapse" id="nota">
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="{{url('historico')}}">
-                                            <span class="sidebar-menu-text">Lista do Histórico</span>
+                                        <a class="sidebar-menu-button" href="{{url('nota')}}">
+                                            <span class="sidebar-menu-text">Lista das notas</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            @endcan
-                            @can('admin')
+                            @elsecan('user')
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">view_compact</i>
+                                    <span class="sidebar-menu-text">Estoque</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="layouts_menu">
+                                    <li class="sidebar-menu-item active">
+                                        <a class="sidebar-menu-button" href="{{url('estoque')}}">
+                                            <span class="sidebar-menu-text">Lista de Estoques</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('aumenta')}}">
+                                            <span class="sidebar-menu-text">Entrada de Estoque</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('quebra')}}">
+                                            <span class="sidebar-menu-text">Lista de Quebras</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#venda">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Vendas</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="venda">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('venda')}}">
+                                            <span class="sidebar-menu-text">Venda</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" data-toggle="collapse" href="#despesa">
+                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
+                                    <span class="sidebar-menu-text">Despesas</span>
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse" id="despesa">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('contapagar')}}">
+                                            <span class="sidebar-menu-text">Lista das Despesas</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{url('tipo')}}">
+                                            <span class="sidebar-menu-text">Listar nome da despesa</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" data-toggle="collapse" href="#nota">
                                     <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
