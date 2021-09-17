@@ -22,4 +22,9 @@ class Itemhistorico extends Model
     {
         return $this->hasOne(Produto::class, 'id','produto_id');
     }
+
+    public function historicos()
+    {
+        return $this->hasOne(Historico::class, 'id', 'historico_id');
+    }
 }
