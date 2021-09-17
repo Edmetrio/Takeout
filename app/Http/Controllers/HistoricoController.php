@@ -17,9 +17,12 @@ class HistoricoController extends Controller
      */
     public function index()
     {
-        $categoria = Itemhistorico::with(['produtos'])
+        $categoria = Itemhistorico::with(['produtos','historicos'])
         ->whereDay('created_at', now()->day)
         ->get();
+
+        $historico = Historico::orderBy('id', 'desc')->get();
+
         $total =0.0;
         foreach($categoria as $c)
         {
@@ -30,9 +33,9 @@ class HistoricoController extends Controller
 
         if(isset($categoria))
         {
-        return view('historico', compact('categoria'));
+        return view('historico', compact('categoria','historico'));
         }
-        return view('historico', compact('categoria','subtotal'));
+        return view('historico', compact('categoria','subtotal','historico'));
     }
 
     /**
@@ -53,11 +56,12 @@ class HistoricoController extends Controller
      */
     public function store(Request $request)
     {
+        /* return $request->all(); */
         $categoria = Itemhistorico::with(['produtos'])->orderBy('id', 'desc')
         ->whereDate('created_at', '>=', $request->inicio)
         ->whereDate('created_at', '<=', $request->fim)
         ->get();
-
+        
         return view('historico', compact('categoria'));
     }
 
