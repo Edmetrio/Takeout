@@ -1,10 +1,9 @@
 <p align="center"><a href="http://takeout.firsteducation.edu.mz/" target="_blank"><img src="https://user-images.githubusercontent.com/78727595/138417624-4e828a43-7b31-41fc-853a-9f49a072dbf2.png" width="200"></a></p>
 
 <p align="center">
-<a href="http://ftech.firsteducation.edu.mz/"><img src="https://user-images.githubusercontent.com/78727595/138426608-74841381-7e19-4892-80d8-fbfc6e8a6d11.jpeg" alt="Build Status" width="100">Loja Virtual</a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="http://ftech.firsteducation.edu.mz/">Loja Virtual</a>  |
+<a href="http://firsteducation.edu.mz/">Agênica Acadêmica</a>  |
+<a href="https://mjayservicos.co.mz/">MJay Serviços</a>
 </p>
 
 ## Metodologia de Desenvolvimento RUP
