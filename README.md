@@ -1,62 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="http://takeout.firsteducation.edu.mz/" target="_blank"><img src="https://user-images.githubusercontent.com/78727595/138417624-4e828a43-7b31-41fc-853a-9f49a072dbf2.png" width="200"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="http://ftech.firsteducation.edu.mz/"><img src="https://user-images.githubusercontent.com/78727595/138426608-74841381-7e19-4892-80d8-fbfc6e8a6d11.jpeg" alt="Build Status" width="100">Loja Virtual</a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Metodologia de Desenvolvimento RUP
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**RUP** é uma metodologia de análise e desenvolvimento de sistemas orientados a objecto baseado na notação _UML_. **RUP** atende as necessidades dos utilizadores garantido uma produção de _software_ de alta qualidade que cumpra um cronograma e um orçamento previsíveis.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Fases do RUP
+- Validar Autenticação;
+- Definir autenticação;
+- Validar Autenticação;
+- Gerir categorias.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Esquema de Base de dados
 
-## Learning Laravel
+Modelo de domínio, ou seja, relação entre as tabelas da base de dados é a representação visual do projecto da base de dados ou objectos do mundo real que devem ser representadas no sistema.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p align="center"><a href="http://takeout.firsteducation.edu.mz/" target="_blank"><img src="https://user-images.githubusercontent.com/78727595/138412723-c9c1b085-d612-4909-bf8c-f6e2bcb2f3e4.png" width="80%"></a></p>
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## Casos de Uso
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Funções que possui um escopo muito mais limitado, traduzindo frequentemente apenas um recurso ou utilidade de sistema. Especiicam o comportamento do sistema e descrevem a funcionalidade do sistema desempenhada pelos autores.
 
-## Contributing
+- **Validar Autenticação;**
+- **Definir autenticação;**
+- **Validar Autenticação;**
+- **Gerir categorias;**
+- **Gerir produtos;**
+- **Gerir processos;**
+- **Gerir estoque;**
+- **Gerir despesas;**
+- **Gerir notas;**
+- **Realizar vendas;**
+- **Visualizar histórico;**
+- **Gerar recibos**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Ferramentas do processo de desenvolvimento do _Software_
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+O processo de escolha das ferramentas deve ter em conta as tecnologias utiizadas no ambiente da implementação, assim como as vantagens e desvantagens desta ferramenta em relação a outras existentes. Para desenvolver o _software_ utilizou-se as seguintes ferramentas: linguagem de modelação _**UML**_, linguagem de programação **PHP**, _framework_ **laravel**, sistema de gestão de base de dados **_MySQL_** e ambiente de desenvolvimento **Visual Studio**.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
