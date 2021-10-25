@@ -17,10 +17,10 @@
 **RUP** é uma metodologia de análise e desenvolvimento de sistemas orientados a objecto baseado na notação _UML_. **RUP** atende as necessidades dos utilizadores garantido uma produção de _software_ de alta qualidade que cumpra um cronograma e um orçamento previsíveis.
 
 ### Fases do RUP
-- Validar Autenticação;
-- Definir autenticação;
-- Validar Autenticação;
-- Gerir categorias.
+- Concepção;
+- Elaboração;
+- Construção;
+- Transição.
 
 ## Esquema de Base de dados
 
@@ -67,9 +67,22 @@ Telas: são apresentadas as telas que compõem o sistema.
     <a href="http://takeout.firsteducation.edu.mz/" target="_blank" align="center"><img src="https://user-images.githubusercontent.com/78727595/138463798-c4e02c46-37d2-49b4-8863-e8cd863abde1.png" width="200"></a>
 </p>
 
-<h3 align="center">Validar Autenticação</h3>
+<h3 align="center">Gerir produtos</h3>
   <p align="center">
-    <a href="http://takeout.firsteducation.edu.mz/" target="_blank" align="center"><img src="https://user-images.githubusercontent.com/78727595/138463798-c4e02c46-37d2-49b4-8863-e8cd863abde1.png" width="200"></a>
+    <a href="http://takeout.firsteducation.edu.mz/" target="_blank" align="center"><img src="https://user-images.githubusercontent.com/78727595/138658010-7de37a95-55ad-4e04-85ab-ac5072921790.png" width="200"></a>
 </p>
 
+<h3 align="center">Realizar vendas</h3>
+  <p align="center">
+    <a href="http://takeout.firsteducation.edu.mz/" target="_blank" align="center"><img src="https://user-images.githubusercontent.com/78727595/138659295-085cb489-4d7c-4821-8240-1a2ea6bf3ccc.png" width="200"></a>
+</p>
 
+<h3 align="center">Contas a Pagar (Versão Mobile)</h3>
+  <p align="center">
+    <a href="http://takeout.firsteducation.edu.mz/" target="_blank" align="center"><img src="https://user-images.githubusercontent.com/78727595/138660911-120ac6cf-80f9-47df-8275-a9f167fe6950.png" width="200"></a>
+</p>
+
+## Links de Páginas
+
+- Loja Virtual (http://ftech.firsteducation.edu.mz/);
+- Agência Acadêmica (https://firsteducation.edu.mz/);
