@@ -82,7 +82,9 @@ Telas: são apresentadas as telas que compõem o sistema.
     <a href="http://takeout.firsteducation.edu.mz/" target="_blank" align="center"><img src="https://user-images.githubusercontent.com/78727595/138660911-120ac6cf-80f9-47df-8275-a9f167fe6950.png" width="200"></a>
 </p>
 
-## Links de Páginas
+## Links de outros Repositórios (GitHub)
 
-- Loja Virtual (http://ftech.firsteducation.edu.mz/);
-- Agência Acadêmica (https://firsteducation.edu.mz/);
+- Plataforma de Agronegócio (https://github.com/Edmetrio/Pepa);
+- Agência de Acadêmica (https://github.com/Edmetrio/Education);
+- Sistema de Gestão (https://github.com/Edmetrio/sxavissa/tree/master)
+- Agência de Viagem (https://github.com/Edmetrio/Simara/tree/master)
